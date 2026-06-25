@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REsimpli Stack Calculator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  /* ============ CONFIG: REsimpli plan pricing ============
+     Update these three prices at 6.0 launch (e.g. 179 / 399 / 899).
+     Everything in the tool recalculates automatically. */
+  :root{
+    --ink:#0B2B2A;
+    --teal:#008088;
+    --teal-deep:#006A70;
+    --teal-wash:#E9F4F3;
+    --teal-line:#CFE6E4;
+    --paper:#F6F9F8;
+    --card:#FFFFFF;
+    --line:#E3ECEB;
+    --muted:#5E7472;
+    --accent:#E8763B;
+    --accent-deep:#CF5E26;
+    --accent-wash:#FCEDE4;
+    --good:#0F8A6E;
+    --shadow:0 1px 2px rgba(11,43,42,.05), 0 12px 32px -12px rgba(11,43,42,.16);
+    --shadow-sm:0 1px 2px rgba(11,43,42,.06);
+    --r:16px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    padding:32px 20px 64px;
+  }
+  .wrap{max-width:940px;margin:0 auto}
+
+  /* header */
+  .head{text-align:center;margin-bottom:28px}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:7px;
+    font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--teal-deep);background:var(--teal-wash);
+    padding:6px 13px;border-radius:100px;border:1px solid var(--teal-line);margin-bottom:16px;
+  }
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+  h1{
+    font-family:'Space Grotesk',sans-serif;font-weight:700;
+    font-size:clamp(28px,4.4vw,42px);line-height:1.08;letter-spacing:-.02em;margin-bottom:12px;
+  }
+  h1 .hl{color:var(--teal)}
+  .sub{font-size:clamp(15px,1.8vw,17px);color:var(--muted);max-width:560px;margin:0 auto}
+
+  /* panel */
+  .panel{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+    box-shadow:var(--shadow);padding:clamp(20px,3vw,32px);margin-bottom:22px;
+  }
+  .panel-head{display:flex;align-items:baseline;gap:12px;margin-bottom:18px}
+  .step-no{
+    font-family:'Space Mono',monospace;font-size:13px;font-weight:700;color:#fff;background:var(--teal);
+    width:26px;height:26px;border-radius:8px;display:grid;place-items:center;flex:none;
+  }
+  .panel-head h2{font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:600;letter-spacing:-.01em}
+  .panel-head .hint{font-size:13.5px;color:var(--muted);margin-left:auto;text-align:right}
+
+  /* segmented team-size control */
+  .seg-label{font-size:13.5px;font-weight:600;color:var(--ink);margin-bottom:9px;display:block}
+  .seg{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:26px}
+  .seg button{
+    font-family:inherit;font-size:14px;font-weight:600;color:var(--muted);
+    background:var(--paper);border:1.5px solid var(--line);border-radius:11px;
+    padding:13px 8px;cursor:pointer;transition:all .16s ease;line-height:1.25;
+  }
+  .seg button .s{display:block;font-size:11.5px;font-weight:500;color:var(--muted);margin-top:2px}
+  .seg button:hover{border-color:var(--teal-line);background:var(--teal-wash)}
+  .seg button[aria-pressed="true"]{
+    border-color:var(--teal);background:var(--teal-wash);color:var(--teal-deep);
+    box-shadow:0 0 0 3px rgba(0,128,136,.10);
+  }
+  .seg button[aria-pressed="true"] .s{color:var(--teal-deep)}
+
+  /* quick add */
+  .qa-label{font-size:13px;font-weight:600;color:var(--muted);margin-bottom:10px}
+  .qa{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+  .qa button{
+    font-family:inherit;font-size:13px;font-weight:500;color:var(--ink);
+    background:#fff;border:1px solid var(--line);border-radius:100px;padding:7px 14px;cursor:pointer;
+    transition:all .15s ease;display:inline-flex;align-items:center;gap:6px;
+  }
+  .qa button::before{content:"+";font-weight:700;color:var(--teal);font-size:15px;line-height:1}
+  .qa button:hover{border-color:var(--teal);background:var(--teal-wash);transform:translateY(-1px)}
+
+  /* tool rows */
+  .rows{display:flex;flex-direction:column;gap:12px;margin-bottom:16px}
+  .row{
+    display:grid;grid-template-columns:1.4fr 1fr 132px 40px;gap:10px;align-items:end;
+    animation:rowin .28s cubic-bezier(.2,.7,.3,1) both;
+  }
+  @keyframes rowin{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+  .fld{display:flex;flex-direction:column;gap:6px;min-width:0}
+  .fld label{font-size:11.5px;font-weight:600;color:var(--muted);letter-spacing:.01em}
+  .fld select,.fld input[type=text],.cost-wrap input{
+    font-family:inherit;font-size:14px;color:var(--ink);background:#fff;
+    border:1.5px solid var(--line);border-radius:10px;padding:11px 12px;width:100%;transition:border-color .15s,box-shadow .15s;
+  }
+  .fld select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235E7472' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:32px}
+  select:focus,input:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(0,128,136,.12)}
+  .cost-wrap{position:relative}
+  .cost-wrap .cur{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-family:'Space Mono',monospace;font-size:14px;color:var(--muted);pointer-events:none}
+  .cost-wrap input{padding-left:24px;font-family:'Space Mono',monospace}
+  .row .rm{
+    height:44px;width:40px;border:1.5px solid var(--line);background:#fff;border-radius:10px;cursor:pointer;
+    color:var(--muted);font-size:18px;line-height:1;transition:all .15s;display:grid;place-items:center;
+  }
+  .row .rm:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-wash)}
+
+  .add-btn{
+    font-family:inherit;font-size:14px;font-weight:600;color:var(--teal-deep);
+    background:var(--teal-wash);border:1.5px dashed var(--teal-line);border-radius:11px;
+    padding:13px;width:100%;cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center;gap:8px;
+  }
+  .add-btn:hover{border-color:var(--teal);background:#E0EFEE}
+  .add-btn span{font-size:17px;font-weight:700}
+
+  /* running total */
+  .runbar{
+    display:flex;align-items:center;gap:14px;margin-top:20px;padding:16px 18px;
+    background:var(--ink);border-radius:12px;color:#fff;
+  }
+  .runbar .lbl{font-size:13px;color:#A8C6C3;font-weight:500}
+  .runbar .amt{font-family:'Space Mono',monospace;font-size:24px;font-weight:700;letter-spacing:-.01em}
+  .runbar .per{font-size:12px;color:#A8C6C3;margin-left:-6px}
+  .runbar .meta{margin-left:auto;font-size:12.5px;color:#A8C6C3;text-align:right;line-height:1.45}
+  .runbar .meta b{color:#fff;font-weight:600}
+
+  /* results */
+  #results{display:none}
+  #results.show{display:block;animation:fadein .4s ease both}
+  @keyframes fadein{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+  /* verdict / signature */
+  .verdict{
+    border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;margin-bottom:22px;background:#fff;
+  }
+  .verdict-top{
+    background:linear-gradient(135deg,#0B2B2A 0%,#0C3D3B 60%,#0E4A47 100%);
+    color:#fff;padding:clamp(24px,4vw,36px);position:relative;
+  }
+  .verdict-top .tag{font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#86E0D6;margin-bottom:10px}
+  .save-num{font-family:'Space Mono',monospace;font-weight:700;font-size:clamp(40px,8vw,64px);line-height:1;letter-spacing:-.02em}
+  .save-num .pre{font-size:.55em;vertical-align:.18em;color:#86E0D6;margin-right:2px}
+  .save-line{font-family:'Space Grotesk',sans-serif;font-size:clamp(17px,2.4vw,21px);font-weight:500;margin-top:12px;max-width:540px}
+  .save-line b{color:#FFD9C2;font-weight:600}
+  .save-sub{font-size:13.5px;color:#9EC4C0;margin-top:8px}
+
+  /* mini stats strip */
+  .strip{display:grid;grid-template-columns:repeat(3,1fr);background:var(--teal-wash);border-top:1px solid var(--teal-line)}
+  .strip .cell{padding:18px 20px;text-align:center;border-right:1px solid var(--teal-line)}
+  .strip .cell:last-child{border-right:none}
+  .strip .v{font-family:'Space Mono',monospace;font-size:22px;font-weight:700;color:var(--teal-deep);letter-spacing:-.01em}
+  .strip .k{font-size:12px;color:var(--muted);margin-top:3px;font-weight:500}
+
+  /* comparison */
+  .cmp-head{font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:9px}
+  .cmp-head .ic{width:22px;height:22px;border-radius:6px;background:var(--teal-wash);color:var(--teal-deep);display:grid;place-items:center;font-size:13px;font-weight:700;border:1px solid var(--teal-line)}
+  .cmp{display:grid;grid-template-columns:1fr 64px 1fr;gap:0;align-items:stretch;margin-bottom:8px}
+  @media(max-width:640px){.cmp{grid-template-columns:1fr;gap:14px}}
+  .stack-side,.re-side{padding:20px;border-radius:14px}
+  .stack-side{background:var(--paper);border:1px solid var(--line)}
+  .side-cap{font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+  .chip{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;background:#fff;border:1px solid var(--line);
+    border-radius:10px;padding:10px 13px;margin-bottom:8px;
+  }
+  .chip .nm{font-size:13.5px;font-weight:500}
+  .chip .nm small{display:block;color:var(--muted);font-size:11.5px;font-weight:400}
+  .chip .pr{font-family:'Space Mono',monospace;font-size:13.5px;font-weight:700;color:var(--ink);white-space:nowrap}
+  .stack-tot{display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:14px;border-top:1.5px dashed var(--line)}
+  .stack-tot .l{font-size:13px;font-weight:600;color:var(--muted)}
+  .stack-tot .v{font-family:'Space Mono',monospace;font-size:20px;font-weight:700}
+
+  .vs{display:grid;place-items:center}
+  .vs span{font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:100px;padding:7px 10px;text-transform:uppercase;letter-spacing:.04em}
+  @media(max-width:640px){.vs span{transform:rotate(90deg)}}
+
+  .re-side{background:linear-gradient(160deg,#fff, #F4FAF9);border:2px solid var(--teal);position:relative}
+  .re-badge{position:absolute;top:-11px;left:20px;background:var(--teal);color:#fff;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:4px 11px;border-radius:100px}
+  .re-plan{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;margin-bottom:2px}
+  .re-price{font-family:'Space Mono',monospace;font-size:30px;font-weight:700;color:var(--teal-deep);letter-spacing:-.01em}
+  .re-price .per{font-size:13px;color:var(--muted);font-weight:400;font-family:'Inter'}
+  .re-blurb{font-size:13px;color:var(--muted);margin:8px 0 14px}
+  .re-list{list-style:none;display:flex;flex-direction:column;gap:7px}
+  .re-list li{font-size:13px;display:flex;gap:8px;align-items:flex-start;color:var(--ink)}
+  .re-list li::before{content:"";flex:none;width:16px;height:16px;margin-top:1px;border-radius:50%;background:var(--teal-wash) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='8' viewBox='0 0 10 8'%3E%3Cpath d='M1 4l2.5 2.5L9 1' stroke='%23006A70' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center no-repeat}
+
+  /* coverage */
+  .cov-wrap{margin-top:26px}
+  .cov-sum{font-size:14px;color:var(--ink);margin-bottom:14px}
+  .cov-sum b{font-weight:700;color:var(--accent-deep)}
+  .cov-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+  @media(max-width:560px){.cov-grid{grid-template-columns:1fr}}
+  .cov{display:flex;align-items:center;gap:10px;padding:11px 13px;border-radius:10px;font-size:13.5px;border:1px solid transparent}
+  .cov.miss{background:var(--accent-wash);border-color:#F3D6C5;color:var(--ink);font-weight:500}
+  .cov.have{background:var(--paper);border-color:var(--line);color:var(--muted)}
+  .cov .mk{flex:none;width:18px;height:18px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:700}
+  .cov.miss .mk{background:var(--accent);color:#fff}
+  .cov.have .mk{background:#fff;border:1px solid var(--line);color:var(--good)}
+  .cov.miss .tag{margin-left:auto;font-size:10.5px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:var(--accent-deep)}
+
+  /* reco + cta */
+  .reco{margin-top:24px;background:var(--teal-wash);border:1px solid var(--teal-line);border-radius:14px;padding:20px 22px}
+  .reco h3{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:var(--teal-deep);margin-bottom:7px;display:flex;align-items:center;gap:8px}
+  .reco p{font-size:14.5px;color:var(--ink);line-height:1.6}
+  .reco p b{font-weight:700}
+  .cta{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}
+  .cta a{flex:1;min-width:200px;text-align:center;text-decoration:none;font-weight:600;font-size:15px;padding:15px 20px;border-radius:12px;transition:all .16s ease}
+  .cta .primary{background:var(--accent);color:#fff;box-shadow:0 8px 20px -8px rgba(232,118,59,.6)}
+  .cta .primary:hover{background:var(--accent-deep);transform:translateY(-1px)}
+  .cta .ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
+  .cta .ghost:hover{border-color:var(--teal);color:var(--teal-deep)}
+
+  .foot{text-align:center;font-size:12px;color:var(--muted);margin-top:24px;line-height:1.6;max-width:620px;margin-left:auto;margin-right:auto}
+  .empty{text-align:center;color:var(--muted);font-size:14.5px;padding:8px 0 4px}
+
+  @media(max-width:560px){
+    .row{grid-template-columns:1fr 1fr;grid-template-areas:"tool tool" "plan cost" "rm rm"}
+    .row .f-tool{grid-area:tool}.row .f-plan{grid-area:plan}.row .f-cost{grid-area:cost}
+    .row .rm{grid-area:rm;width:100%}
+    .runbar{flex-wrap:wrap}.runbar .meta{margin-left:0;width:100%;text-align:left;border-top:1px solid #1d4644;padding-top:10px}
+    .strip{grid-template-columns:1fr}.strip .cell{border-right:none;border-bottom:1px solid var(--teal-line)}
+  }
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="head">
+    <span class="eyebrow"><span class="dot"></span> Stack Savings Calculator</span>
+    <h1>You are probably paying for <span class="hl">five tools</span> that REsimpli replaces with one.</h1>
+    <p class="sub">Add the software you pay for today. See your real monthly spend, the REsimpli plan that fits, and everything you are missing right now.</p>
+  </header>
+
+  <!-- INPUTS -->
+  <section class="panel">
+    <div class="panel-head">
+      <span class="step-no">1</span>
+      <h2>How big is your team?</h2>
+      <span class="hint">This sets the right plan size</span>
+    </div>
+    <div class="seg" id="seg" role="group" aria-label="Team size">
+      <button data-users="1" aria-pressed="false">Just me<span class="s">1 user</span></button>
+      <button data-users="5" aria-pressed="false">Small team<span class="s">2 to 5</span></button>
+      <button data-users="15" aria-pressed="false">Growing team<span class="s">6 to 15</span></button>
+      <button data-users="16" aria-pressed="false">Large team<span class="s">16+</span></button>
+    </div>
+
+    <div class="panel-head" style="margin-top:6px">
+      <span class="step-no">2</span>
+      <h2>What are you paying for now?</h2>
+      <span class="hint">Add every tool, not just your CRM</span>
+    </div>
+
+    <div class="qa-label">Quick add a popular tool</div>
+    <div class="qa" id="qa"></div>
+
+    <div class="rows" id="rows"></div>
+    <button class="add-btn" id="add"><span>+</span> Add another tool</button>
+
+    <div class="runbar">
+      <span class="lbl">Your spend today</span>
+      <span class="amt" id="runAmt">$0</span><span class="per">/mo</span>
+      <span class="meta" id="runMeta"><b>0 tools</b> &middot; <b>0 logins</b></span>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="results">
+
+    <div class="verdict">
+      <div class="verdict-top">
+        <div class="tag" id="vTag">Your result</div>
+        <div class="save-num" id="vNum"><span class="pre">$</span>0</div>
+        <div class="save-line" id="vLine"></div>
+        <div class="save-sub" id="vSub"></div>
+      </div>
+      <div class="strip">
+        <div class="cell"><div class="v" id="sMonthly">$0</div><div class="k">Your spend / month</div></div>
+        <div class="cell"><div class="v" id="sAnnual">$0</div><div class="k">Your spend / year</div></div>
+        <div class="cell"><div class="v" id="sTools">0</div><div class="k">Tools to manage</div></div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="cmp-head"><span class="ic">&#8644;</span> Your stack vs REsimpli</div>
+      <div class="cmp">
+        <div class="stack-side">
+          <div class="side-cap">What you pay for today</div>
+          <div id="chips"></div>
+          <div class="stack-tot"><span class="l">Total every month</span><span class="v" id="cmpTotal">$0</span></div>
+        </div>
+        <div class="vs"><span>vs</span></div>
+        <div class="re-side">
+          <div class="re-badge">Recommended</div>
+          <div class="re-plan" id="rePlan">Pro</div>
+          <div class="re-price"><span id="rePrice">$299</span><span class="per">/mo</span></div>
+          <div class="re-blurb" id="reBlurb"></div>
+          <ul class="re-list">
+            <li>CRM, dialer, skip tracing, lists, mail and websites in one place</li>
+            <li>Multi-Line Power Dialer built in, no separate subscription</li>
+            <li>AI Agents, AI call summaries and Speed-to-Lead included</li>
+            <li>One login, one bill, no tools to wire together</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cov-wrap">
+        <div class="cmp-head" style="font-size:15px"><span class="ic">&#10003;</span> What REsimpli adds that your stack is missing</div>
+        <div class="cov-sum" id="covSum"></div>
+        <div class="cov-grid" id="covGrid"></div>
+      </div>
+
+      <div class="reco">
+        <h3>&#9733; Your recommendation</h3>
+        <p id="recoText"></p>
+      </div>
+
+      <div class="cta">
+        <a class="primary" href="#" id="ctaTrial">Start your 30 day free trial</a>
+        <a class="ghost" href="#" id="ctaDemo">Book a demo</a>
+      </div>
+    </div>
+
+    <p class="foot">Competitor prices shown are typical published list prices and are for comparison only. Edit any amount to match what you actually pay. REsimpli plan recommendation is based on your team size; the plan you choose is always up to you.</p>
+  </section>
+
+</div>
+
+<script>
+/* ====================== CONFIG ====================== */
+const PLANS = [
+  {id:'basic',      name:'Basic',      price:149, maxUsers:1,  blurb:'For solo investors who want every tool in one place.'},
+  {id:'pro',        name:'Pro',        price:299, maxUsers:5,  blurb:'For growing teams scaling up their deal flow.'},
+  {id:'enterprise', name:'Enterprise', price:599, maxUsers:15, blurb:'For established teams that need scale, speed and control.'}
+];
+const TRIAL_URL = 'https://resimpli.com/signup';   // <-- set real URLs
+const DEMO_URL  = 'https://resimpli.com/demo';
+
+/* The 16 capabilities REsimpli consolidates */
+const CAPS = [
+  ['crm','CRM & Lead Management'],
+  ['lists','List Stacking'],
+  ['skiptrace','Skip Tracing'],
+  ['marketing','Drip Campaigns'],
+  ['mail','Direct Mail'],
+  ['phone','Phone System & In-App Calling'],
+  ['dialer','Multi-Line Power Dialer'],
+  ['website','SEO Investor Websites'],
+  ['d4d','Driving for Dollars'],
+  ['kpi','KPI Tracking'],
+  ['aisummary','AI Call Summaries'],
+  ['aiagents','AI Agents'],
+  ['speed','Speed-to-Lead'],
+  ['leadscore','Lead Scoring'],
+  ['automation','Automation'],
+  ['team','Team Management']
+];
+
+/* Competitor tools: what each typically covers + published plan prices (monthly) */
+const TOOLS = {
+  'Carrot':        {covers:['crm','website','marketing'],                 plans:[['Free',0],['Essential',69],['Scale',179],['Team',349]]},
+  'FreedomSoft':   {covers:['crm','phone','mail','website','marketing'],  plans:[['Start',197],['Grow',297],['Scale',797]]},
+  'REISift':       {covers:['lists','skiptrace'],                         plans:[['Professional',149],['Business',299],['Expert',499],['AI',1250]]},
+  'DealMachine':   {covers:['d4d','lists','skiptrace','mail'],            plans:[['Starter',119],['Pro',179],['Pro Plus',279]]},
+  'PropStream':    {covers:['lists','skiptrace','mail'],                  plans:[['Essentials',99],['Pro',199],['Elite',699]]},
+  'REI BlackBook': {covers:['crm','phone','marketing','website'],         plans:[['Solo',199],['Team',399],['Executive',999]]},
+  'Left Main REI': {covers:['crm','automation','team'],                   plans:[['Starter',500],['Launch',1200],['Enterprise',2000]]},
+  'Forefront CRM': {covers:['crm','marketing'],                           plans:[['Lite',25],['Starter',99],['Pro',199],['Elite',299]]},
+  'Invelo':        {covers:['crm','lists','skiptrace','mail','d4d'],      plans:[['Deal Finder',99],['Growth',199],['Professional',349]]},
+  'Xleads':        {covers:['crm','lists','skiptrace'],                   plans:[['Basic',97],['Pro',199],['X Plan',249]]},
+  'Cycl Sales':    {covers:['crm','automation','marketing'],              plans:[['Automate',197],['AI Autopilot',297],['Ultimate',10000]]},
+  'smrtPhone':     {covers:['phone','dialer'],                            plans:[['Standard',75],['Pro',125]]},
+  'Mojo Dialer':   {covers:['dialer','phone','skiptrace'],                plans:[['Single-Line',89],['Triple-Line',139]]},
+  'BatchDialer':   {covers:['dialer','phone'],                            plans:[['Starter',119],['Pro',189],['Enterprise',249]]},
+  'Podio':         {covers:['crm'],                                       plans:[['Basic',14],['Plus',24],['Premium',30]]},
+  'Other / Not listed': {covers:[],                                       plans:[]}
+};
+const POPULAR = ['Carrot','PropStream','DealMachine','smrtPhone','REISift','Podio'];
+
+/* ====================== STATE ====================== */
+let users = null;
+let rows = [];          // {id, tool, plan, cost}
+let nextId = 1;
+const $ = s => document.querySelector(s);
+
+/* ====================== BUILD INPUTS ====================== */
+function buildQuickAdd(){
+  const qa = $('#qa');
+  POPULAR.forEach(name=>{
+    const b=document.createElement('button');
+    b.type='button'; b.textContent=name;
+    b.onclick=()=>{ addRow(name); };
+    qa.appendChild(b);
+  });
+}
+
+function seg(){
+  $('#seg').querySelectorAll('button').forEach(b=>{
+    b.onclick=()=>{
+      users=parseInt(b.dataset.users,10);
+      $('#seg').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed','false'));
+      b.setAttribute('aria-pressed','true');
+      render();
+    };
+  });
+}
+
+function addRow(presetTool){
+  const r={id:nextId++, tool:presetTool||'', plan:'', cost:''};
+  if(presetTool && TOOLS[presetTool] && TOOLS[presetTool].plans.length){
+    // default to the most common (second) plan if available, else first
+    const p=TOOLS[presetTool].plans;
+    const def=p[Math.min(1,p.length-1)];
+    r.plan=def[0]; r.cost=def[1];
+  }
+  rows.push(r);
+  renderRows(); render();
+}
+
+function renderRows(){
+  const wrap=$('#rows'); wrap.innerHTML='';
+  rows.forEach(r=>{
+    const div=document.createElement('div'); div.className='row';
+    // tool select
+    const toolOpts=['<option value="">Select a tool</option>']
+      .concat(Object.keys(TOOLS).map(t=>`<option ${t===r.tool?'selected':''}>${t}</option>`)).join('');
+    const isOther = r.tool==='Other / Not listed';
+    const hasPlans = r.tool && TOOLS[r.tool] && TOOLS[r.tool].plans.length;
+    // plan / name middle field
+    let mid='';
+    if(isOther || (r.tool && !hasPlans)){
+      mid=`<div class="fld f-plan"><label>Tool name</label><input type="text" data-k="plan" placeholder="e.g. SMS tool" value="${r.plan||''}"></div>`;
+    } else if(hasPlans){
+      const planOpts=['<option value="">Select plan</option>']
+        .concat(TOOLS[r.tool].plans.map(p=>`<option value="${p[0]}" ${p[0]===r.plan?'selected':''}>${p[0]} ($${p[1]}/mo)</option>`))
+        .concat(`<option value="__custom" ${r.plan==='__custom'?'selected':''}>Other amount</option>`).join('');
+      mid=`<div class="fld f-plan"><label>Plan</label><select data-k="plan">${planOpts}</select></div>`;
+    } else {
+      mid=`<div class="fld f-plan"><label>Plan</label><select data-k="plan" disabled><option>Select a tool first</option></select></div>`;
+    }
+    div.innerHTML=`
+      <div class="fld f-tool"><label>Tool / software</label><select data-k="tool">${toolOpts}</select></div>
+      ${mid}
+      <div class="fld f-cost"><label>Paid last month</label>
+        <div class="cost-wrap"><span class="cur">$</span><input type="number" min="0" step="1" data-k="cost" placeholder="0" value="${r.cost!==''&&r.cost!=null?r.cost:''}"></div>
+      </div>
+      <button class="rm" title="Remove" aria-label="Remove tool">&times;</button>`;
+    // wire
+    div.querySelectorAll('[data-k]').forEach(el=>{
+      el.addEventListener('change',e=>onField(r.id,e.target.dataset.k,e.target.value,e.target));
+      el.addEventListener('input',e=>{ if(e.target.dataset.k==='cost'||e.target.type==='text') onField(r.id,e.target.dataset.k,e.target.value,e.target,true); });
+    });
+    div.querySelector('.rm').onclick=()=>{ rows=rows.filter(x=>x.id!==r.id); renderRows(); render(); };
+    wrap.appendChild(div);
+  });
+}
+
+function onField(id,k,val,el,silent){
+  const r=rows.find(x=>x.id===id); if(!r) return;
+  if(k==='tool'){
+    r.tool=val; r.plan=''; r.cost='';
+    const p=TOOLS[val] && TOOLS[val].plans;
+    if(p && p.length){ const def=p[Math.min(1,p.length-1)]; r.plan=def[0]; r.cost=def[1]; }
+    renderRows(); render(); return;
+  }
+  if(k==='plan'){
+    r.plan=val;
+    if(val && val!=='__custom' && TOOLS[r.tool]){
+      const found=TOOLS[r.tool].plans.find(p=>p[0]===val);
+      if(found){ r.cost=found[1]; }
+    }
+    renderRows(); render(); return;
+  }
+  if(k==='cost'){ r.cost = val===''?'':Math.max(0,parseFloat(val)||0); if(!silent) renderRows(); render(); return; }
+}
+
+/* ====================== LOGIC ====================== */
+function activeRows(){ return rows.filter(r=>r.tool && r.tool!=='' ); }
+function total(){ return activeRows().reduce((s,r)=>s+(parseFloat(r.cost)||0),0); }
+function coveredKeys(){
+  const set=new Set();
+  activeRows().forEach(r=>{ (TOOLS[r.tool]?.covers||[]).forEach(k=>set.add(k)); });
+  return set;
+}
+function recommend(){
+  const u = users||1;
+  if(u<=1) return {plan:PLANS[0],custom:false};
+  if(u<=5) return {plan:PLANS[1],custom:false};
+  if(u<=15) return {plan:PLANS[2],custom:false};
+  return {plan:PLANS[2],custom:true};
+}
+function toolLabel(r){
+  if(r.tool==='Other / Not listed') return r.plan?`${r.plan}`:'Other tool';
+  return r.tool + (r.plan && r.plan!=='__custom' && TOOLS[r.tool]?.plans.length ? '' : '');
+}
+function planSub(r){
+  if(r.tool==='Other / Not listed') return '';
+  if(r.plan && r.plan!=='__custom') return r.plan+' plan';
+  return '';
+}
+
+/* ====================== RENDER ====================== */
+function animateNum(el,target,prefix){
+  const reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  const fmt=v=>prefix+Math.round(v).toLocaleString('en-US');
+  if(reduce){ el.textContent=fmt(target); return; }
+  const start=parseFloat((el.dataset.v||'0')); const t0=performance.now(); const dur=520;
+  function step(t){
+    const p=Math.min(1,(t-t0)/dur); const e=1-Math.pow(1-p,3);
+    el.textContent=fmt(start+(target-start)*e);
+    if(p<1) requestAnimationFrame(step); else el.dataset.v=target;
+  }
+  requestAnimationFrame(step);
+}
+
+function render(){
+  renderRunbar();
+  const act=activeRows();
+  const ready = users!==null && act.length>0;
+  const res=$('#results');
+  if(!ready){ res.className=''; return; }
+  res.className='show';
+
+  const spend=total();
+  const {plan,custom}=recommend();
+  const save=spend-plan.price;
+
+  // verdict
+  const vNum=$('#vNum'), vLine=$('#vLine'), vSub=$('#vSub'), vTag=$('#vTag');
+  if(save>0){
+    vTag.textContent='You could save';
+    vNum.innerHTML='<span class="pre">$</span>'+'<span id="vCount">0</span>';
+    animateNum($('#vCount'),save,'');
+    vNum.dataset.v=save;
+    vLine.innerHTML=`every month by switching to the REsimpli <b>${plan.name}</b> plan.`;
+    vSub.textContent=`That is about $${(save*12).toLocaleString('en-US')} a year back in your pocket, with more tools, not fewer.`;
+  } else {
+    const diff=Math.abs(save);
+    vTag.textContent='More for nearly the same';
+    vNum.innerHTML='<span class="pre">$</span><span id="vCount">0</span><span style="font-size:.4em;color:#86E0D6"> /mo</span>';
+    animateNum($('#vCount'),plan.price,'');
+    vLine.innerHTML = diff===0
+      ? `is all the REsimpli <b>${plan.name}</b> plan costs, and it replaces everything above in one place.`
+      : `gets you the REsimpli <b>${plan.name}</b> plan. For about <b>$${diff}/mo</b> more than your current tools, you consolidate everything and unlock what you are missing below.`;
+    vSub.textContent='One platform, one login, one bill, plus the capabilities your current stack does not have.';
+  }
+
+  // strip
+  animateNum($('#sMonthly'),spend,'$');
+  animateNum($('#sAnnual'),spend*12,'$');
+  $('#sTools').textContent=act.length;
+
+  // comparison chips
+  const chips=$('#chips'); chips.innerHTML='';
+  act.forEach(r=>{
+    const c=document.createElement('div'); c.className='chip';
+    const sub=planSub(r);
+    c.innerHTML=`<span class="nm">${r.tool==='Other / Not listed'?(r.plan||'Other tool'):r.tool}${sub?`<small>${sub}</small>`:''}</span>
+                 <span class="pr">$${(parseFloat(r.cost)||0).toLocaleString('en-US')}</span>`;
+    chips.appendChild(c);
+  });
+  $('#cmpTotal').textContent='$'+spend.toLocaleString('en-US');
+
+  // resimpli side
+  $('#rePlan').textContent=plan.name + (custom?' +':'');
+  $('#rePrice').textContent='$'+plan.price;
+  $('#reBlurb').textContent=plan.blurb;
+
+  // coverage
+  const cov=coveredKeys();
+  const missing=CAPS.filter(c=>!cov.has(c[0]));
+  const covGrid=$('#covGrid'); covGrid.innerHTML='';
+  // show missing first, then covered
+  const ordered=[...CAPS].sort((a,b)=>{
+    const am=cov.has(a[0])?1:0, bm=cov.has(b[0])?1:0; return am-bm;
+  });
+  ordered.forEach(c=>{
+    const has=cov.has(c[0]);
+    const d=document.createElement('div'); d.className='cov '+(has?'have':'miss');
+    d.innerHTML=`<span class="mk">${has?'&#10003;':'+'}</span><span>${c[1]}</span>${has?'':'<span class="tag">Add</span>'}`;
+    covGrid.appendChild(d);
+  });
+  $('#covSum').innerHTML = missing.length
+    ? `Your current stack is missing <b>${missing.length} of REsimpli&rsquo;s ${CAPS.length} core capabilities</b>. Every one below is included in your recommended plan at no extra cost.`
+    : `Your tools cover the basics, but REsimpli brings them into <b>one connected platform</b> instead of ${act.length} separate logins and bills.`;
+
+  // recommendation sentence
+  const toolNames=act.map(r=>r.tool==='Other / Not listed'?'another tool':r.tool);
+  const nicelist = toolNames.length===1?toolNames[0]
+    : toolNames.slice(0,-1).join(', ')+' and '+toolNames.slice(-1);
+  const usersLabel = users===1?'a solo operator':(users===16?'a large team':`a team of ${users<=5?'up to 5':'6 to 15'}`);
+  let sentence=`As ${usersLabel} using ${nicelist}, the <b>${plan.name} plan</b> is your best fit. `;
+  if(custom) sentence+=`Since you are running more than 15 seats, start on Enterprise and talk to our team about a custom rollout. `;
+  if(save>0){
+    sentence+=`You would consolidate <b>${act.length} tool${act.length>1?'s':''}</b> into one platform and save about <b>$${save.toLocaleString('en-US')}/mo</b> (roughly $${(save*12).toLocaleString('en-US')}/year), while gaining <b>${missing.length}</b> capabilit${missing.length===1?'y':'ies'} you do not have today.`;
+  } else {
+    sentence+=`You would replace <b>${act.length} separate tool${act.length>1?'s':''}</b> with one login and one bill, and pick up <b>${missing.length}</b> capabilit${missing.length===1?'y':'ies'} your current stack is missing, including the Multi-Line Power Dialer, AI Agents and Speed-to-Lead.`;
+  }
+  $('#recoText').innerHTML=sentence;
+
+  // CTAs: enterprise -> demo first emphasis
+  $('#ctaTrial').href=TRIAL_URL;
+  $('#ctaDemo').href=DEMO_URL;
+}
+
+function renderRunbar(){
+  const act=activeRows(); const spend=total();
+  $('#runAmt').textContent='$'+spend.toLocaleString('en-US');
+  $('#runMeta').innerHTML=`<b>${act.length} tool${act.length!==1?'s':''}</b> &middot; <b>${act.length} login${act.length!==1?'s':''}</b> to manage`;
+}
+
+/* ====================== INIT ====================== */
+buildQuickAdd(); seg(); addRow(); renderRows(); render();
+</script>
+</body>
+</html>
