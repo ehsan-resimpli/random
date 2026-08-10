@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- ============================================================
+     SEO METADATA
+     ============================================================ -->
+<title>BatchDialer Alternative for Real Estate Investors | REsimpli</title>
+<meta name="description" content="Looking for a BatchDialer alternative? REsimpli includes a single-line dialer, triple-line dialer, SMS, and a full real estate investor CRM in one flat-rate plan — no per-agent tiers, no lead list add-ons, and no sales call required to add seats. Start a free trial." />
+<link rel="canonical" href="https://resimpli.com/batchdialer-alternative" />
+<meta name="robots" content="index,follow" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="The BatchDialer Alternative That Includes SMS AND the CRM | REsimpli" />
+<meta property="og:description" content="Single-line + triple-line dialer, SMS, and a full real estate investor CRM in one flat-rate plan. No per-agent tiers, no lead list add-ons, no sales call to add seats. Predictable plan-based pricing." />
+<meta property="og:url" content="https://resimpli.com/batchdialer-alternative" />
+<meta property="og:image" content="https://resimpli.com/assets/og/batchdialer-alternative.png" />
+
+<style>
+/* ============================================================
+   DESIGN TOKENS  — matched to resimpli.com homepage
+   Teal brand #008088 · coral CTA #CD4F50 · navy ink ·
+   Gilroy display + body (homepage font) · white/light backgrounds,
+   soft cards, no gradients.
+   ============================================================ */
+:root{
+  --teal:#008088;
+  --teal-700:#016a70;
+  --coral:#CD4F50;
+  --coral-600:#b24446;
+  --ink:#14233b;          /* headings, dark navy */
+  --slate:#4b5b72;        /* body */
+  --muted:#7a8aa0;
+  --paper:#ffffff;
+  --paper-2:#f7faf9;
+  --card:#ffffff;
+  --line:#e5eaf0;
+  --green:#1aa47b;        /* included checks */
+  --green-bg:#e7f6f0;
+  --warn:#c6802a;         /* billed separately / usage markers */
+  --warn-bg:#fbf1e3;
+  --navy:#12211f;
+  --shadow:0 1px 2px rgba(20,35,59,.05),0 12px 34px rgba(20,35,59,.07);
+  --shadow-lg:0 30px 70px rgba(20,35,59,.16);
+  --radius:18px;
+  --radius-sm:12px;
+  --maxw:1320px;
+  --display:"Gilroy",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --body:"Gilroy",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--slate);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4{font-family:var(--display);color:var(--ink);line-height:1.12;letter-spacing:-.01em;font-weight:700}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--display);font-weight:600;font-size:16px;padding:14px 26px;border-radius:999px;border:0;cursor:pointer;transition:transform .12s ease,box-shadow .12s ease,background .12s ease;text-align:center}
+.btn-primary{background:var(--coral);color:#fff;box-shadow:0 8px 20px rgba(205,79,80,.30)}
+.btn-primary:hover{background:var(--coral-600);transform:translateY(-1px)}
+.btn-ghost{background:#fff;color:var(--teal);border:1.5px solid var(--line)}
+.btn-ghost:hover{border-color:var(--teal)}
+.btn-lg{padding:17px 34px;font-size:18px}
+.btn:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:600;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal)}
+.section{padding:86px 0}
+.bg-2{background:var(--paper-2)}
+.section-head{margin-bottom:44px}
+.section-head.center{margin-left:auto;margin-right:auto;text-align:center}
+.section-head.center p{margin-left:auto;margin-right:auto}
+.section-head h2{font-size:clamp(22px,2.6vw,30px);margin:12px 0 12px}
+.section-head p{font-size:18px;color:var(--slate)}
+@media(min-width:1024px){.section-head h2,.section-head p{white-space:nowrap}}
+@media(max-width:720px){
+  .section{padding:56px 0}
+  .section-head{text-align:center;margin-left:auto;margin-right:auto}
+  .section-head p{font-size:16px;margin-left:auto;margin-right:auto}
+}
+
+/* ---------------- HEADER ---------------- */
+header.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);box-shadow:0 1px 10px rgba(18,33,31,.04)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+.logo{display:flex;align-items:center;gap:9px;font-family:var(--display);font-weight:800;font-size:21px;color:var(--ink);letter-spacing:-.02em;flex:none}
+.logo .mk{width:28px;height:28px;border-radius:8px;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800}
+.logo b{color:var(--teal);font-weight:800}
+.nav-links{display:flex;align-items:center;gap:26px;flex:1;justify-content:center}
+.nav-links a{font-size:14.5px;font-weight:600;color:var(--slate);white-space:nowrap}
+.nav-links a:hover{color:var(--teal)}
+.nav-right{display:flex;align-items:center;gap:18px;flex:none}
+.nav-trust{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--slate);font-weight:500}
+.nav-login{font-size:14.5px;font-weight:700;color:var(--ink)}
+.nav-login:hover{color:var(--teal)}
+.stars{color:#f5a623;letter-spacing:1px}
+.nav .btn{padding:11px 20px;font-size:15px}
+.nav-toggle{display:none;flex:none;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;border:1.5px solid var(--line);background:#fff;cursor:pointer;padding:0}
+.cta-short{display:none}
+.nav-toggle svg{pointer-events:none}
+.nav-toggle .ic-close{display:none}
+.nav-toggle[aria-expanded="true"] .ic-open{display:none}
+.nav-toggle[aria-expanded="true"] .ic-close{display:block}
+.nav-panel{display:none;position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 16px 30px rgba(20,35,59,.10);padding:8px 24px 20px}
+.nav-panel.open{display:block}
+.nav-panel a{display:block;padding:13px 4px;font-size:16px;font-weight:600;color:var(--ink);border-bottom:1px dashed var(--line)}
+.nav-panel a:last-of-type{border-bottom:0}
+.nav-panel .btn{display:flex;width:100%;margin-top:14px}
+@media(max-width:1020px){.nav-trust{display:none}}
+@media(max-width:860px){
+  .nav-links{display:none}
+  .nav-login{display:none}
+  .nav-toggle{display:inline-flex}
+  .cta-full{display:none}
+  .cta-short{display:inline}
+}
+
+/* ---------------- HERO ---------------- */
+.hero{position:relative;padding:60px 0 74px;overflow:hidden;background:var(--paper)}
+.hero .wrap{position:relative}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center}
+.hero h1{font-size:clamp(28px,5vw,54px);margin:14px 0 16px}
+.hero h1 em{font-style:normal;color:var(--coral)}
+.hero-sub{font-size:17.5px;color:var(--slate);max-width:560px;margin-bottom:26px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+@media(max-width:900px){.hero-cta{justify-content:center}}
+@media(max-width:520px){.hero-cta{flex-direction:column;align-items:stretch}.hero-cta .btn{width:100%}}
+
+/* signature: two bills — source design, rows share height so columns align */
+.bills{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-lg);overflow:hidden}
+.bills-head{display:grid;grid-template-columns:1fr 1fr;font-family:var(--display);font-weight:600;font-size:13.5px}
+.bills-head div{padding:15px 20px}
+.bh-a{background:var(--warn-bg);color:var(--warn);border-right:1px solid var(--line)}
+.bh-b{background:var(--teal);color:#fff}
+.bills-body{display:grid;grid-template-columns:1fr 1fr}
+.bcell{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:13px;padding:10px 20px;border-bottom:1px dashed var(--line)}
+.bcell.a{border-right:1px solid var(--line)}
+.bcell .amt{color:var(--warn);font-weight:600;white-space:nowrap}
+.incl{color:var(--green);font-weight:600;white-space:nowrap}
+.bcell.total{border-bottom:0;align-items:baseline;padding-top:14px;padding-bottom:16px}
+.bcell.total .lbl{font-family:var(--display);font-weight:600;font-size:13px;color:var(--ink)}
+.bcell.total .val{font-family:var(--display);font-weight:700;font-size:20px}
+.bcell.total.a .val{color:var(--warn)}
+.bcell.total.b .val{color:var(--teal)}
+.bill-save{position:relative;text-align:center;padding:28px 22px 30px;background:#e9f5f5;border-top:1px solid #cfe8e8;overflow:hidden;isolation:isolate}
+.bill-save .bs-badge{position:relative;z-index:1;display:inline-flex;align-items:center;gap:6px;font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);background:#fff;padding:6px 14px;border-radius:999px}
+.bill-save .bs-badge svg{flex:none}
+.bill-save .bs-amt{position:relative;z-index:1;font-family:var(--display);font-weight:800;font-size:clamp(38px,8vw,56px);color:var(--teal);line-height:1;margin-top:12px;letter-spacing:-.01em}
+.bill-save .bs-amt .bs-per{font-size:17px;font-weight:700;color:var(--teal-700);margin-left:3px}
+.bill-save .bs-cap{position:relative;z-index:1;font-size:14px;color:var(--slate);font-weight:600;margin-top:8px}
+.bill-save .bs-cap b{color:var(--ink);font-weight:800}
+@media(max-width:520px){
+  .bill-save{padding:22px 16px 24px}
+  .bill-save .bs-badge{font-size:10.5px;padding:5px 11px}
+  .bill-save .bs-amt{margin-top:9px}
+  .bill-save .bs-cap{font-size:12.5px;line-height:1.4}
+}
+@media(max-width:380px){
+  .bill-save .bs-cap{padding:0 4px}
+}
+@media(max-width:480px){
+  .bills-head div{padding:12px 12px;font-size:12.5px}
+  .bcell{padding:9px 12px;font-size:11.5px;gap:6px}
+  .bcell.total .lbl{font-size:12px}
+  .bcell.total .val{font-size:17px}
+}
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:38px}
+  .hero{padding:36px 0 52px}
+  .hero-grid>div:first-child{text-align:center}
+  .hero-sub{margin-left:auto;margin-right:auto}
+}
+
+/* ---------------- REVIEW STRIP ---------------- */
+.reviews{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper-2)}
+.reviews .wrap{padding:26px 24px;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+.rev-break{display:none}
+.rev-lead{font-family:var(--display);font-weight:600;color:var(--ink);font-size:15px;margin-right:8px}
+.rev-badge{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 16px;text-align:center;min-width:104px}
+.rev-badge .n{font-family:var(--display);font-weight:700;color:var(--ink);font-size:18px}
+.rev-badge .n .stars{font-size:11px;margin-right:4px}
+.rev-badge .p{font-size:11.5px;color:var(--muted)}
+@media(max-width:640px){
+  .rev-badge{min-width:88px;padding:8px 10px}
+  .reviews .wrap{gap:10px}
+  .rev-lead{flex-basis:100%;text-align:center;margin:0 0 6px}
+  .rev-break{display:block;flex-basis:100%;width:0;height:0;margin:0}
+}
+
+/* ---------------- CARDS ---------------- */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px;box-shadow:var(--shadow)}
+.card .ic{width:46px;height:46px;border-radius:12px;background:var(--green-bg);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.card h3{font-size:19px;margin-bottom:9px}
+.card p{color:var(--slate);font-size:15px}
+@media(max-width:900px){.cards{grid-template-columns:1fr;max-width:520px;margin:0 auto}}
+
+/* ---------------- SPLIT (included vs separate) ---------------- */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.panel{border-radius:var(--radius);padding:30px;border:1px solid var(--line)}
+.panel.sep{background:#fff}
+.panel.inc{background:var(--teal);color:#eafffb;border-color:var(--teal)}
+.panel .tag{font-family:var(--display);font-size:12.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.panel.sep .tag{color:var(--warn)}
+.panel.inc .tag{color:#bff0e6}
+.panel h3{font-size:21px;margin:6px 0 0}
+.panel.inc h3{color:#fff}
+.plist{list-style:none;margin-top:18px;display:flex;flex-direction:column;gap:12px}
+.plist li{display:flex;align-items:flex-start;gap:12px;font-size:15px}
+.plist .mk{flex:0 0 22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:700;font-size:13px;margin-top:1px}
+.panel.sep .mk{background:var(--warn-bg);color:var(--warn)}
+.panel.inc .mk{background:rgba(255,255,255,.2);color:#fff}
+.panel.sep small{color:var(--muted)}
+@media(max-width:820px){.split{grid-template-columns:1fr;max-width:520px;margin:0 auto}}
+
+/* ---------------- CALCULATOR (light theme) ---------------- */
+.calc{background:#fff;color:var(--slate);border:1px solid var(--line);border-radius:24px;padding:clamp(28px,4vw,46px);box-shadow:var(--shadow-lg)}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.calc .eyebrow{color:var(--teal)}
+.calc h2{color:var(--ink);font-size:clamp(21px,3.3vw,36px);margin:10px 0 8px}
+.calc .lead{color:var(--slate);font-size:16px;margin-bottom:24px}
+
+.billing-toggle{display:inline-flex;background:var(--paper-2);border:1px solid var(--line);border-radius:999px;padding:4px;margin-bottom:22px}
+.billing-toggle button{border:0;background:transparent;color:var(--slate);font-family:var(--display);font-weight:600;font-size:13.5px;padding:9px 20px;border-radius:999px;cursor:pointer;transition:.15s}
+.billing-toggle button[aria-pressed=true]{background:var(--teal);color:#fff;box-shadow:0 1px 2px rgba(20,35,59,.12)}
+.billing-toggle .save{font-size:11px;margin-left:6px}
+.billing-toggle button[aria-pressed=false] .save{color:var(--teal)}
+.billing-toggle button[aria-pressed=true] .save{color:#cfeeee}
+
+.ctrl{margin-bottom:20px}
+.ctrl label{display:flex;justify-content:space-between;font-family:var(--display);font-weight:600;font-size:14.5px;color:var(--ink);margin-bottom:10px}
+.ctrl label .v{color:var(--teal)}
+
+input[type=range]{width:100%;height:6px;border-radius:999px;background:var(--line);appearance:none;outline:none}
+input[type=range]::-webkit-slider-thumb{appearance:none;width:22px;height:22px;border-radius:50%;background:var(--teal);cursor:pointer;border:3px solid #fff;box-shadow:0 1px 4px rgba(0,128,136,.35)}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--teal);cursor:pointer;border:3px solid #fff;box-shadow:0 1px 4px rgba(0,128,136,.35)}
+input[type=range]:focus-visible{outline:3px solid var(--teal);outline-offset:4px}
+
+.reps-note{margin:-4px 0 22px;padding:13px 16px;border-radius:12px;font-size:13.5px;line-height:1.45;background:#e9f5f5;color:var(--teal-700)}
+.reps-note.warn{background:var(--warn-bg);color:var(--warn)}
+
+.plan-toggle{flex-wrap:wrap}
+.ctrl.is-unlimited input[type=range]{opacity:.45;pointer-events:none}
+.ctrl .unlimited-note{display:none;font-size:12.5px;font-weight:600;color:var(--teal);margin-top:12px}
+.ctrl.is-unlimited .unlimited-note{display:block}
+.ctrl .fixed-note{font-size:12.5px;font-weight:600;color:var(--coral);margin-top:12px}
+
+.style-toggle{display:inline-flex;background:var(--paper-2);border:1px solid var(--line);border-radius:999px;padding:4px}
+.style-toggle button{border:0;background:transparent;color:var(--slate);font-family:var(--display);font-weight:600;font-size:13.5px;padding:9px 18px;border-radius:999px;cursor:pointer;transition:.15s}
+.style-toggle button[aria-pressed=true]{background:var(--teal);color:#fff;box-shadow:0 1px 2px rgba(20,35,59,.12)}
+
+.result{background:var(--paper-2);border:1px solid var(--line);border-radius:18px;padding:26px}
+.res-row{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+.res-row:first-child{padding-top:2px}
+.res-row .k{font-family:var(--display);font-weight:600;font-size:15px;color:var(--ink)}
+.res-row .k small{display:block;font-family:var(--body);font-weight:400;color:var(--muted);font-size:12px;margin-top:3px}
+.res-row .n{font-family:var(--display);font-size:26px;font-weight:700;white-space:nowrap}
+.res-row .n .permo{font-size:13px;font-weight:600;color:var(--muted);margin-left:2px}
+.res-row.sp .n{color:var(--coral)}
+.res-row.re .n{color:var(--teal)}
+
+.incbox{margin:18px 0;padding:20px;border-radius:14px;background:#e9f5f5;border:1px solid #cfe8e8}
+.incbox-title{font-family:var(--display);font-weight:700;font-size:15px;color:var(--teal-700);line-height:1.3;margin-bottom:8px}
+.incbox-body{font-size:13.5px;color:var(--slate);line-height:1.5;margin-bottom:14px}
+.incbox-list{list-style:none;display:flex;flex-direction:column;gap:9px}
+.incbox-list li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--ink)}
+.incbox-list li svg{flex:0 0 18px;margin-top:1px;color:var(--teal)}
+
+.savings{text-align:center;background:#e9f5f5;border:1px solid #cfe8e8;border-radius:16px;padding:26px 22px}
+.savings .big{font-family:var(--display);font-weight:700;font-size:clamp(32px,7vw,60px);color:var(--teal);line-height:1}
+.savings .cap{font-size:13.5px;color:var(--slate);margin-top:8px}
+.savings .btn-calc{display:inline-flex;align-items:center;justify-content:center;gap:8px;margin-top:18px;width:100%;font-family:var(--display);font-weight:600;font-size:17px;padding:16px 24px;border-radius:999px;border:0;cursor:pointer;background:var(--coral);color:#fff;transition:transform .14s ease,background .14s ease;box-shadow:0 8px 20px rgba(205,79,80,.30)}
+.savings .btn-calc:hover{background:var(--coral-600);transform:translateY(-1px)}
+.savings .btn-calc:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+
+@media(max-width:820px){.calc-grid{grid-template-columns:1fr;gap:28px}}
+
+/* ---------------- FEATURE GRID ---------------- */
+.fgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.fcard{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px}
+.fcard .ic{width:40px;height:40px;border-radius:10px;background:var(--green-bg);display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.fcard h4{font-size:15.5px;margin-bottom:5px}
+.fcard p{font-size:13px;color:var(--muted)}
+.fcard .pill{display:inline-block;font-family:var(--display);font-weight:600;font-size:10px;color:var(--green);background:var(--green-bg);padding:2px 9px;border-radius:999px;margin-top:10px;letter-spacing:.03em}
+.fcard .pill.new{color:var(--coral);background:#f7e5e5}
+@media(max-width:900px){.fgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.fgrid{grid-template-columns:1fr}}
+
+/* ---------------- COMPARISON TABLE ---------------- */
+.tablewrap{max-width:880px;margin:0 auto;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;box-shadow:var(--shadow)}
+table.cmp{width:100%;border-collapse:collapse}
+table.cmp th,table.cmp td{padding:12px 18px;text-align:left;border-bottom:1px solid var(--line);font-size:14.5px;vertical-align:middle;line-height:1.35}
+table.cmp thead th{font-family:var(--display);font-size:15px;background:var(--paper-2);color:var(--ink)}
+table.cmp thead th.re{background:var(--teal);color:#fff}
+table.cmp td.mid,table.cmp th.mid{text-align:center;width:170px}
+table.cmp tbody tr:last-child td{border-bottom:0}
+.yes{color:var(--green);font-weight:700}
+.no{color:var(--muted)}
+.partial{color:var(--warn);font-size:13px}
+.rowlbl b{display:block;font-size:14.5px;color:var(--ink)}
+.rowlbl span{color:var(--muted);font-size:12.5px}
+.recol{background:rgba(0,128,136,.05)}
+@media(max-width:720px){table.cmp th,table.cmp td{padding:10px 11px;font-size:12.5px}table.cmp td.mid,table.cmp th.mid{width:auto}.rowlbl span{display:none}}
+
+/* ---------------- TESTIMONIALS ---------------- */
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.quote{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}
+.quote .stars{font-size:15px;margin-bottom:12px}
+.quote p{font-size:15.5px;color:var(--ink);margin-bottom:18px;font-weight:500}
+.quote .who{display:flex;align-items:center;gap:12px}
+.quote .av{width:42px;height:42px;border-radius:50%;background:var(--green-bg);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:700;color:var(--teal);overflow:hidden;flex:none}
+.quote .av img{width:100%;height:100%;object-fit:cover;display:block}
+.quote .who b{display:block;font-size:14px;color:var(--ink)}
+.quote .who span{font-size:12.5px;color:var(--muted)}
+@media(max-width:900px){.quotes{grid-template-columns:1fr;max-width:520px;margin:0 auto}}
+
+/* ---------------- FAQ ---------------- */
+.faq{max-width:820px;margin:0 auto}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);margin-bottom:12px;overflow:hidden}
+.faq summary{list-style:none;cursor:pointer;padding:20px 22px;font-family:var(--display);font-weight:600;font-size:16.5px;color:var(--ink);display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--teal);font-size:22px;transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq .a{padding:0 22px 20px;color:var(--slate);font-size:15px}
+
+/* ---------------- FINAL CTA ---------------- */
+.finalcta{background:#eef7f7;border:1.5px solid #cfe8e8;color:var(--slate);text-align:center;border-radius:26px;padding:clamp(32px,6vw,72px) 22px;box-shadow:0 10px 34px rgba(0,128,136,.08)}
+.finalcta .eyebrow{color:var(--teal)}
+.finalcta h2{color:var(--ink);font-size:clamp(20px,2.45vw,28px);margin-bottom:12px;max-width:1100px;margin-inline:auto}
+.finalcta h2 em{font-style:normal;color:var(--teal)}
+.finalcta p{color:var(--slate);font-size:clamp(13px,1.42vw,16.5px);max-width:1050px;margin:0 auto 28px}
+@media(min-width:1024px){.finalcta h2,.finalcta p{white-space:nowrap}}
+.finalcta .rr{margin-top:16px;font-size:13.5px;color:var(--muted)}
+
+/* ---------------- FOOTER (light theme, matches homepage) ---------------- */
+footer{background:#fff;color:var(--slate);padding:56px 0 26px;font-size:14px;border-top:1px solid var(--line)}
+.foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr 1fr;gap:28px;margin-bottom:30px}
+footer h5{font-family:var(--display);color:var(--ink);font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin-bottom:16px}
+footer ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+footer a{color:var(--slate);font-weight:500}
+footer a:hover{color:var(--teal)}
+.foot-logo{font-family:var(--display);font-weight:800;font-size:22px;color:var(--ink);margin-bottom:12px}
+.foot-logo b{color:var(--teal)}
+.foot-desc{max-width:260px;color:var(--muted);font-size:14px}
+.foot-social{display:flex;gap:10px;margin-top:18px}
+.foot-social a{width:34px;height:34px;border-radius:50%;background:var(--paper-2);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--teal)}
+.foot-social a:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+.foot-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;border-top:1px solid var(--line);padding-top:22px}
+.foot-apps{display:flex;gap:10px}
+.foot-apps img{height:36px;width:auto;display:block}
+.foot-copy{font-size:13px;color:var(--muted)}
+.disclaimer{border-top:1px solid var(--line);margin-top:22px;padding-top:22px;font-size:11.5px;color:var(--muted);line-height:1.65}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0)}
+@media(max-width:900px){.foot-bottom{flex-direction:column;align-items:flex-start}}
+
+/* ---------------- MOBILE TYPE COMPRESSION ---------------- */
+@media(max-width:720px){
+  body{font-size:15px}
+  .btn-lg{padding:14px 26px;font-size:16px}
+  .btn{font-size:14.5px;padding:12px 20px}
+  .eyebrow{font-size:11.5px}
+  .card h3{font-size:17px}
+  .card p{font-size:14px}
+  .panel h3{font-size:18px}
+  .panel .tag{font-size:11.5px}
+  .plist li{font-size:14px}
+  .fcard h4{font-size:14.5px}
+  .fcard p{font-size:12.5px}
+  .quote p{font-size:14.5px}
+  .faq summary{font-size:15px;padding:16px 18px}
+  .faq .a{font-size:13.5px;padding:0 18px 16px}
+  .rev-lead{font-size:13.5px}
+  .res-row .k{font-size:14px}
+  .res-row .n{font-size:22px}
+  .res-row .n .permo{font-size:11px}
+  .ctrl label{font-size:13.5px}
+  .incbox-title{font-size:14px}
+  .incbox-body,.incbox-list li{font-size:13px}
+  .billing-toggle button,.style-toggle button{padding:12px 16px;min-height:44px}
+  input[type=range]::-webkit-slider-thumb{width:26px;height:26px}
+  input[type=range]::-moz-range-thumb{width:26px;height:26px}
+  input[type=range]{height:8px}
+  .ctrl .fixed-note,.ctrl .unlimited-note{margin-top:16px}
+}
+@media(max-width:400px){
+  .plan-toggle button{padding:12px 12px;font-size:12.5px}
+  .billing-toggle{flex-wrap:wrap}
+  .billing-toggle .save{display:block;margin-left:0;margin-top:2px;font-size:10px}
+  .calc{padding:22px 18px}
+  .savings .btn-calc{font-size:15.5px;padding:14px 20px}
+}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media(max-width:820px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.foot-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="https://resimpli.com/" class="logo"><span class="mk">R</span>RE<b>simpli</b></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="https://resimpli.com/features/">Features</a>
+      <a href="https://resimpli.com/case-studies/">Case Study</a>
+      <a href="https://resimpli.com/testimonials/">Testimonials</a>
+      <a href="https://resimpli.com/batchdialer-alternative/">Compare</a>
+      <a href="https://resimpli.com/pricing/">Pricing</a>
+    </nav>
+    <div class="nav-right">
+      <div class="nav-trust"><span class="stars">★★★★★</span> 4.9 · 2,547+ reviews</div>
+      <a href="https://dashboard.resimpli.com/auth/login" class="nav-login">Log in</a>
+      <a href="https://resimpli.com/pricing/" class="btn btn-primary"><span class="cta-full">Start FREE Trial</span><span class="cta-short">Sign Up</span></a>
+      <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navPanel" aria-label="Open menu">
+        <svg class="ic-open" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg class="ic-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="nav-panel" id="navPanel">
+    <a href="https://resimpli.com/features/">Features</a>
+    <a href="https://resimpli.com/case-studies/">Case Study</a>
+    <a href="https://resimpli.com/testimonials/">Testimonials</a>
+    <a href="https://resimpli.com/batchdialer-alternative/">Compare</a>
+    <a href="https://resimpli.com/pricing/">Pricing</a>
+    <a href="https://dashboard.resimpli.com/auth/login">Log in</a>
+    <a href="https://resimpli.com/pricing/" class="btn btn-primary"><span class="cta-full">Start FREE Trial</span><span class="cta-short">Sign Up</span></a>
+  </div>
+</header>
+
+<!-- ============ 1. HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">BatchDialer Alternative</span>
+      <h1>More of the Tools You Need, Built Into One Complete Platform</h1>
+      <p class="hero-sub">
+        Manage leads, calls, texts, and lists with a CRM built specifically for real estate investors.
+        Replace disconnected tools with one platform and predictable pricing.
+      </p>
+      <div class="hero-cta">
+        <a href="https://resimpli.com/pricing/" class="btn btn-primary btn-lg">Start FREE Trial</a>
+        <a href="#calculator" class="btn btn-ghost btn-lg">See your savings</a>
+      </div>
+    </div>
+
+    <!-- SIGNATURE: two monthly bills, real numbers (5-agent team, BatchDialer Starter annual) -->
+    <div class="bills" aria-label="Monthly cost comparison, 5-agent team, BatchDialer Starter">
+      <div class="bills-head">
+        <div class="bh-a">BatchDialer Starter</div>
+        <div class="bh-b">REsimpli Pro</div>
+      </div>
+      <div class="bills-body">
+        <div class="bcell a" title="BatchDialer Starter plan costs $95/agent"><span>Triple line dialer × 5 agents</span><span class="amt">$475</span></div>
+        <div class="bcell b"><span>Triple line dialer × 5</span><span class="incl">included</span></div>
+
+        <div class="bcell a"><span>CRM (BatchLeads Growth)</span><span class="amt">$71</span></div>
+        <div class="bcell b"><span>CRM</span><span class="incl">included</span></div>
+
+        <div class="bcell a"><span>Lead Lists (20,000/mo)</span><span class="amt">$238</span></div>
+        <div class="bcell b"><span>List Builder (20,000/mo)</span><span class="incl">included</span></div>
+
+        <div class="bcell a"><span>List Stacking (BatchLeads Growth)</span><span class="amt">$119</span></div>
+        <div class="bcell b"><span>List Stacking</span><span class="incl">included</span></div>
+
+        <div class="bcell a"><span>Website</span><span class="amt">$89</span></div>
+        <div class="bcell b"><span>Website</span><span class="incl">included</span></div>
+
+        <div class="bcell a"><span>SMS</span><span class="amt" style="color:var(--muted)">not included</span></div>
+        <div class="bcell b"><span>SMS</span><span class="incl">included</span></div>
+
+        <div class="bcell a total"><span class="lbl">≈ per month*</span><span class="val">$992</span></div>
+        <div class="bcell b total"><span class="lbl">REsimpli Pro</span><span class="val">$499</span></div>
+      </div>
+      <div class="bill-save">
+        <div class="bs-badge">
+          <svg width="13" height="13" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l3.5 3.5L16 5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          You save
+        </div>
+        <div class="bs-amt">$5,916<span class="bs-per">/yr</span></div>
+        <div class="bs-cap">by switching to <b>REsimpli Pro</b></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ REVIEW STRIP ============ -->
+<div class="reviews">
+  <div class="wrap">
+    <span class="rev-lead">Rated 4.9 across every platform</span>
+    <div class="rev-badge"><div class="n"><span class="stars">★</span>4.9</div><div class="p">Trustpilot</div></div>
+    <div class="rev-badge"><div class="n"><span class="stars">★</span>4.9</div><div class="p">G2</div></div>
+    <div class="rev-badge"><div class="n"><span class="stars">★</span>4.9</div><div class="p">Google</div></div>
+    <div class="rev-break" aria-hidden="true"></div>
+    <div class="rev-badge"><div class="n"><span class="stars">★</span>4.9</div><div class="p">Facebook</div></div>
+    <div class="rev-badge"><div class="n"><span class="stars">★</span>4.9</div><div class="p">App Store</div></div>
+    <div class="rev-break" aria-hidden="true"></div>
+    <div class="rev-badge"><div class="n"><span class="stars">★</span>4.95</div><div class="p">TrustRadius</div></div>
+  </div>
+</div>
+
+<!-- ============ 7. FEATURE COMPARISON TABLE ============ -->
+<section class="section bg-2">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">BatchDialer vs REsimpli</span>
+      <h2>Feature comparison for real estate investors</h2>
+      <p>In a nutshell: BatchDialer is a calling tool. REsimpli is the all-in-one platform.</p>
+    </div>
+    <div class="tablewrap">
+      <table class="cmp">
+        <thead>
+          <tr><th>What matters to investors</th><th class="mid">BatchDialer</th><th class="mid re">REsimpli</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="rowlbl"><b>Per-agent dialer pricing</b><span>Cost per seat</span></td><td class="mid partial">$119–$249/agent/mo, or less annually</td><td class="mid recol"><span class="yes">Included — no per-agent fee</span></td></tr>
+          <tr><td class="rowlbl"><b>Lines per agent</b><span>Simultaneous dialing</span></td><td class="mid partial">3 (Starter) or 5 (Pro/Enterprise), tier-gated</td><td class="mid recol"><span class="yes">Single &amp; triple-line included, any plan</span></td></tr>
+          <tr><td class="rowlbl"><b>Outbound SMS</b><span>Text follow-up</span></td><td class="mid"><span class="no">Not offered</span></td><td class="mid recol"><span class="yes">Included by plan</span><br><span style="font-size:12px;color:var(--muted)">1,000 / 5,000 / Unlimited*</span></td></tr>
+          <tr><td class="rowlbl"><b>Team pricing beyond a few seats</b><span>Scaling up</span></td><td class="mid partial">Contact Sales for a custom quote</td><td class="mid recol"><span class="yes">Transparent self-serve at any size</span></td></tr>
+          <tr><td class="rowlbl"><b>Fresh lead lists</b><span>New motivated-seller leads</span></td><td class="mid partial">$49–$119/mo flat add-on</td><td class="mid recol"><span class="yes">Included skip tracing &amp; list stacking</span></td></tr>
+          <tr><td class="rowlbl"><b>CRM</b><span>Pipeline &amp; lead management</span></td><td class="mid partial">Built-in call tracking, notes &amp; appointments only</td><td class="mid recol"><span class="yes">Full investor CRM — pipeline, drip, dispo</span></td></tr>
+          <tr><td class="rowlbl"><b>Extra phone numbers</b><span>Beyond plan allotment</span></td><td class="mid partial">$1–$2 each, by plan</td><td class="mid recol"><span class="yes">Included by plan</span></td></tr>
+          <tr><td class="rowlbl"><b>Marketing automation &amp; drip</b><span>Follow-up on autopilot</span></td><td class="mid"><span class="no">—</span></td><td class="mid recol"><span class="yes">Included</span></td></tr>
+          <tr><td class="rowlbl"><b>Driving for Dollars</b><span>List building on the road</span></td><td class="mid"><span class="no">—</span></td><td class="mid recol"><span class="yes">Included</span></td></tr>
+          <tr><td class="rowlbl"><b>Cash buyers &amp; dispo</b><span>Move deals faster</span></td><td class="mid"><span class="no">—</span></td><td class="mid recol"><span class="yes">Included</span></td></tr>
+          <tr><td class="rowlbl"><b>Investor websites &amp; accounting</b><span>Capture leads, track P&amp;L</span></td><td class="mid"><span class="no">—</span></td><td class="mid recol"><span class="yes">Included</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:12px;color:var(--muted);margin-top:14px;text-align:center">*REsimpli standard calling &amp; SMS are included by plan (Basic 1,000 / Pro 5,000 / Unlimited plan: no cap, fair use); additional standard usage is pay-as-you-go and AI calling/SMS are billed separately. BatchDialer pricing per batchdialer.com/pricing, published rates at time of writing. BatchDialer is a trademark of its respective owner; verify current details on the provider's site.</p>
+  </div>
+</section>
+
+<!-- ============ 5. EVERYTHING INCLUDED ============ -->
+<section class="section" id="features">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">One platform</span>
+      <h2>One login runs your whole acquisition machine</h2>
+      <p>BatchDialer handles the call. REsimpli handles the text, the CRM, and everything before and after the call, too.</p>
+    </div>
+    <div class="fgrid">
+      <div class="fcard"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1aa47b" stroke-width="2"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.6A2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .4 2 .7 2.9a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.2-1.2a2 2 0 012.1-.5c.9.3 1.9.6 2.9.7a2 2 0 011.7 2z"/></svg></div><h4>Single-line dialer</h4><p>Focused one-to-one calling built into the CRM.</p><span class="pill">included</span></div>
+      <div class="fcard"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1aa47b" stroke-width="2"><path d="M4 4h4l2 5-2 2a12 12 0 005 5l2-2 5 2v4"/><path d="M15 3l6 6M21 3l-6 6"/></svg></div><h4>Triple-line dialer</h4><p>Dial three lines at once — no per-agent tier to unlock it.</p><span class="pill">included</span></div>
+      <div class="fcard"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1aa47b" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg></div><h4>Calling minutes by plan</h4><p>1,000/mo on Basic, 5,000/mo on Pro, no cap on Unlimited (fair use).</p><span class="pill">by plan</span></div>
+      <div class="fcard"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1aa47b" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div><h4>SMS by plan</h4><p>BatchDialer has no texting product; REsimpli's SMS shares the plan allocation.</p><span class="pill new">BatchDialer has none</span></div>
+      <div class="fcard"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1aa47b" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 3 5-5"/></svg></div><h4>All-in-one investor CRM</h4><p>Pipeline, stages, and reporting built for REI — not just call notes.</p><span class="pill">included</span></div>
+      <div class="fcard"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1aa47b" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></div><h4>REsimpli AI Engine</h4><p>Gen 2 AI answers, texts, follows up, and scores leads on every plan. AI Agents &amp; AI usage are add-ons — BatchDialer's AI coaching is Pro/Enterprise only.</p><span class="pill new">add-on</span></div>
+      <div class="fcard"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1aa47b" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div><h4>Automation &amp; drip</h4><p>Time- and trigger-based follow-up that runs itself.</p><span class="pill">included</span></div>
+      <div class="fcard"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1aa47b" stroke-width="2"><path d="M12 2a7 7 0 00-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 00-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div><h4>Driving for Dollars</h4><p>Route-tracked D4D with lists that flow into the CRM.</p><span class="pill">included</span></div>
+      <div class="fcard"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1aa47b" stroke-width="2"><path d="M3 21h18M6 21V9l6-4 6 4v12M10 13h4"/></svg></div><h4>Cash buyers &amp; dispo</h4><p>Build a buyers list and move deals faster.</p><span class="pill">included</span></div>
+      <div class="fcard"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1aa47b" stroke-width="2"><path d="M12 3l2 5 5 .4-4 3.3 1.3 5-4.3-2.8L7.7 19l1.3-5-4-3.3 5-.4z"/></svg></div><h4>Free skip tracing</h4><p>10,000–50,000 owner-data credits/mo included — BatchDialer's Lead Lists are a $49–$119/mo flat add-on.</p><span class="pill">included</span></div>
+      <div class="fcard"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1aa47b" stroke-width="2"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M2 9h20M8 21h8"/></svg></div><h4>Investor websites</h4><p>SEO seller &amp; buyer sites — no developer.</p><span class="pill">included</span></div>
+      <div class="fcard"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1aa47b" stroke-width="2"><path d="M3 3v18h18"/><rect x="7" y="10" width="3" height="7"/><rect x="12" y="6" width="3" height="11"/><rect x="17" y="13" width="3" height="4"/></svg></div><h4>Accounting &amp; KPIs</h4><p>Marketing spend, cost per deal, and P&amp;L in one place.</p><span class="pill">included</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. CALCULATOR ============ -->
+<section class="section bg-2" id="calculator">
+  <div class="wrap">
+    <div class="calc">
+      <div class="calc-grid">
+        <div>
+          <span class="eyebrow">Cost estimator</span>
+          <h2>What does a BatchDialer team really cost?</h2>
+          <p class="lead">Slide in your real numbers for a team of up to 20. We compare a typical BatchDialer setup with the REsimpli plan you choose. Defaults reflect a 5-agent team on BatchDialer Starter, billed annually, with enough Lead Lists volume to match REsimpli Pro's 20,000 List Builder credits, plus BatchLeads Growth for a real CRM and list stacking, plus a website tool.</p>
+
+          <div class="billing-toggle" role="group" aria-label="Billing term">
+            <button id="annual" aria-pressed="true">Annual <span class="save">save up to 33%</span></button>
+            <button id="monthly" aria-pressed="false">Monthly</button>
+          </div>
+
+          <div class="ctrl">
+            <label>REsimpli plan</label>
+            <div class="style-toggle plan-toggle" role="group" aria-label="REsimpli plan">
+              <button id="planBasic" data-plan="basic" aria-pressed="false">Basic</button>
+              <button id="planPro" data-plan="pro" aria-pressed="true">Pro</button>
+              <button id="planEnt" data-plan="ent" aria-pressed="false">Unlimited</button>
+            </div>
+          </div>
+
+          <div class="ctrl">
+            <label for="reps">Agents dialing <span class="v" id="repsV">5</span></label>
+            <input type="range" id="reps" min="1" max="20" value="5" aria-valuemin="1" aria-valuemax="20" aria-valuenow="5" aria-valuetext="5 agents" />
+          </div>
+          <div class="reps-note" id="repsNote" aria-live="polite"></div>
+
+          <div class="ctrl">
+            <label>Dialer type</label>
+            <div class="style-toggle" role="group" aria-label="Dialer type">
+              <button id="single" aria-pressed="false">Single-line</button>
+              <button id="multi" aria-pressed="true">Multi-line</button>
+            </div>
+          </div>
+
+          <div class="ctrl" id="minsCtrl">
+            <label>Outbound minutes / month <span class="v" id="minsV">5,000</span></label>
+            <input type="range" id="mins" min="1000" max="60000" step="1000" value="5000" />
+            <div class="unlimited-note">No cap on REsimpli's Unlimited plan either — usage doesn't change your REsimpli price.</div>
+          </div>
+
+          <div class="ctrl" id="smsCtrl">
+            <label>Text messages / month <span class="v" id="smsV">5,000</span></label>
+            <input type="range" id="sms" min="0" max="50000" step="1000" value="5000" />
+            <div class="fixed-note">BatchDialer has no SMS/texting product at all — REsimpli includes SMS by plan.</div>
+            <div class="unlimited-note">No cap on REsimpli's Unlimited plan either — usage doesn't change your REsimpli price.</div>
+          </div>
+
+        </div>
+
+        <div class="result" aria-live="polite">
+          <div class="res-row sp"><span class="k">Estimated BatchDialer stack<small id="spNote">BatchDialer Starter × 5 agents + 20,000 Leads/mo + BatchLeads Growth + Website</small></span><span class="n" id="outSp">$0</span></div>
+          <div class="res-row re"><span class="k">REsimpli <span id="reName">Pro</span><small id="reNote">Pro · up to 5 users</small></span><span class="n" id="outRe">$0</span></div>
+
+          <div class="incbox">
+            <div class="incbox-title" id="incTitle"></div>
+            <div class="incbox-body" id="incBody"></div>
+            <ul class="incbox-list" id="incList"></ul>
+          </div>
+
+          <div class="savings">
+            <div class="big" id="outYear">$0</div>
+            <div class="cap"><span id="capPrefix">Estimated annual savings</span><span id="capTail"> · <span id="outSave">$0</span> <span id="capSuffix">estimated monthly savings</span></span></div>
+            <a href="https://resimpli.com/pricing/" class="btn-calc">Start FREE Trial</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9. TESTIMONIALS ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow">From real investors</span>
+      <h2>Teams that stopped juggling tools</h2>
+      <p>2,547+ reviews and counting. Here's what running everything in one place looks like.</p>
+    </div>
+    <div class="quotes">
+      <div class="quote"><div class="stars">★★★★★</div><p>"I was doing 2 deals a month, now we're doing 6–10."</p><div class="who"><div class="av"><img src="data:image/jpeg;base64,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" alt="John Blackburn" /></div><div><b>John Blackburn</b><span>Real estate investor</span></div></div></div>
+      <div class="quote"><div class="stars">★★★★★</div><p>"Some of the other systems out there just seem quite complicated. REsimpli lives up to its name of being simple."</p><div class="who"><div class="av"><img src="data:image/webp;base64,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" alt="Sara Giret" /></div><div><b>Sara Giret</b><span>Good Life Properties</span></div></div></div>
+      <div class="quote"><div class="stars">★★★★★</div><p>"It's so intuitive how you guys built it out. It's just plug and play!"</p><div class="who"><div class="av"><img src="data:image/jpeg;base64,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" alt="Chad Young" /></div><div><b>Chad Young</b><span>Real estate investor</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10. FAQ ============ -->
+<section class="section bg-2" id="faq">
+  <div class="wrap">
+    <div class="section-head center" style="margin-bottom:44px">
+      <span class="eyebrow">Before you switch</span>
+      <h2>BatchDialer alternative — questions investors ask</h2>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>Is REsimpli a replacement for BatchDialer?</summary>
+        <div class="a">It replaces more than BatchDialer. BatchDialer prices per agent, then bills Lead Lists and extra phone numbers on top, with a call-tracking CRM that has no pipeline, drip, or dispo tools. REsimpli includes the single-line and triple-line dialer, standard SMS, <em>and</em> a full real estate investor CRM — so it replaces the per-agent dialer stack, the Lead Lists add-on, and the standalone CRM most BatchDialer users still run, in one login.</div>
+      </details>
+      <details>
+        <summary>How is the pricing different?</summary>
+        <div class="a">BatchDialer bills per agent — $119/mo Starter, $189/mo Pro, or $249/mo Enterprise (or $95, $151, $199 per agent billed annually) — then adds Lead Lists ($49–$119/mo flat) and extra phone numbers ($1–$2 each) on top. Teams past a few seats get routed to "Contact Sales" instead of transparent checkout. REsimpli is one predictable plan price per tier — Basic $199, Pro $499, Unlimited $1,999 per month, billed annually (or $299 / $599 / $2,499 monthly) — with both dialers, SMS, and the CRM built in, self-serve at any team size.</div>
+      </details>
+      <details>
+        <summary>Does BatchDialer support texting?</summary>
+        <div class="a">No. BatchDialer's published pricing and feature list have no SMS or texting product. REsimpli includes standard SMS as part of your plan allocation — 1,000/mo on Basic, 5,000/mo on Pro, and unlimited under a fair-use policy on the Unlimited plan — with additional standard usage available pay-as-you-go and AI SMS billed separately.</div>
+      </details>
+      <details>
+        <summary>Does BatchDialer have a CRM?</summary>
+        <div class="a">A limited one. BatchDialer's built-in CRM tracks call results, appointments, notes, and recordings — useful for call management, but with no pipeline stages, list stacking, drip automation, dispo, or accounting. REsimpli includes all of that as a full real estate investor CRM, not just a call log.</div>
+      </details>
+      <details>
+        <summary>What happens if my team grows past a few seats on BatchDialer?</summary>
+        <div class="a">Based on BatchDialer's own pricing calculator, adding roughly 5 or more agents — or even a single Lead Lists add-on — routes you to "Contact Sales" instead of self-serve checkout. REsimpli's plan pricing stays transparent and self-serve regardless of team size, with additional users billed at a flat $99/user/mo.</div>
+      </details>
+      <details>
+        <summary>Can I keep my current phone numbers?</summary>
+        <div class="a">In all cases, numbers can be ported in, and our onboarding team walks you through the process so you do not lose your marketing numbers.</div>
+      </details>
+      <details>
+        <summary>Will switching disrupt my calling team?</summary>
+        <div class="a">Start a free trial and run REsimpli alongside your current setup before you move. Onboarding is free and unlimited, and support helps you import leads and get the team dialing quickly.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 11. FINAL CTA ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="finalcta">
+      <span class="eyebrow">Make the switch</span>
+      <h2>The BatchDialer price, plus SMS, a full CRM, and <em>1-on-1 onboarding</em>.</h2>
+      <p>Try REsimpli free. Bring your team, keep your numbers, and start texting leads today.</p>
+      <a href="https://resimpli.com/pricing/" class="btn btn-primary btn-lg">Start FREE Trial</a>
+      <div class="rr">Up to 30-day free trial · Free unlimited onboarding · Cancel anytime</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">RE<b>simpli</b></div>
+        <p class="foot-desc">One app to replace them all. All of your work in one place: Data, Marketing, Sales and Operations.</p>
+        <div class="foot-social">
+          <a href="https://www.linkedin.com/company/resimpli" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5.001A2.5 2.5 0 014.98 3.5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21H17.4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.86V21H9z"/></svg></a>
+          <a href="https://www.facebook.com/REsimpli/" target="_blank" rel="noopener" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.25-1.5 1.55-1.5H17V3.7C16.7 3.66 15.7 3.5 14.5 3.5c-2.5 0-4.2 1.53-4.2 4.33V10H7.6v3.1h2.7v8z"/></svg></a>
+          <a href="https://www.instagram.com/resimpli/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 8.2a3.8 3.8 0 100 7.6 3.8 3.8 0 000-7.6zm0 6.27a2.47 2.47 0 110-4.94 2.47 2.47 0 010 4.94zM16.5 4H7.5A3.5 3.5 0 004 7.5v9A3.5 3.5 0 007.5 20h9a3.5 3.5 0 003.5-3.5v-9A3.5 3.5 0 0016.5 4zm2.2 12.5a2.2 2.2 0 01-2.2 2.2h-9a2.2 2.2 0 01-2.2-2.2v-9a2.2 2.2 0 012.2-2.2h9a2.2 2.2 0 012.2 2.2zM17.1 7.6a.9.9 0 11-1.8 0 .9.9 0 011.8 0z"/></svg></a>
+        </div>
+      </div>
+      <div><h5>REsimpli</h5><ul>
+        <li><a href="https://resimpli.com/our-story/">Our Story</a></li>
+        <li><a href="https://resimpli.com/contact/">Contact</a></li>
+        <li><a href="https://resimpli.com/case-studies/">Case Studies</a></li>
+        <li><a href="https://resimpli.com/testimonials/">Testimonials</a></li>
+        <li><a href="https://www.trustpilot.com/review/resimpli.com" target="_blank" rel="noopener">Trustpilot Reviews</a></li>
+        <li><a href="https://www.g2.com/products/resimpli/reviews" target="_blank" rel="noopener">G2 Reviews</a></li>
+      </ul></div>
+      <div><h5>Features</h5><ul>
+        <li><a href="https://resimpli.com/features/list-stacking/">List Stacking</a></li>
+        <li><a href="https://resimpli.com/features/crm/">All-in-One CRM</a></li>
+        <li><a href="https://resimpli.com/features/speed-to-lead/">Speed to Lead</a></li>
+        <li><a href="https://resimpli.com/features/drip-campaign/">Drip Campaign</a></li>
+        <li><a href="https://resimpli.com/features/ai-agents/">AI Agents</a></li>
+        <li><a href="https://resimpli.com/features/">All Features</a></li>
+      </ul></div>
+      <div><h5>Compare</h5><ul>
+        <li><a href="https://resimpli.com/batchdialer-alternative/"><b style="color:var(--teal)">vs BatchDialer</b></a></li>
+        <li><a href="https://resimpli.com/mojo-dialer-alternative/">vs Mojo Dialer</a></li>
+        <li><a href="https://resimpli.com/smrtphone-alternative/">vs SmrtPhone</a></li>
+        <li><a href="https://resimpli.com/podio-alternative/">vs Podio</a></li>
+        <li><a href="https://resimpli.com/carrot-alternative/">vs Carrot</a></li>
+      </ul></div>
+      <div><h5>Blog</h5><ul>
+        <li><a href="https://resimpli.com/general/">General</a></li>
+        <li><a href="https://resimpli.com/investor/">Investor</a></li>
+        <li><a href="https://help.resimpli.com/en/" target="_blank" rel="noopener">Help Center</a></li>
+        <li><a href="https://resimpli.com/faq/">FAQ</a></li>
+      </ul></div>
+    </div>
+    <div class="foot-bottom">
+      <div class="foot-apps">
+        <a href="https://apps.apple.com/in/app/resimpli/id1503295381" target="_blank" rel="noopener" aria-label="Download on the App Store"><img src="https://cdn-cnkod.nitrocdn.com/ruoSwcGkrfAFJBwhAOTHwBdIwFhKZZHX/assets/images/optimized/rev-1a281f8/resimpli.com/wp-content/themes/REsimpli/images/apple-store.svg" alt="Apple App Store" /></a>
+        <a href="https://play.google.com/store/apps/details?id=com.app.resimpli" target="_blank" rel="noopener" aria-label="Get it on Google Play"><img src="https://cdn-cnkod.nitrocdn.com/ruoSwcGkrfAFJBwhAOTHwBdIwFhKZZHX/assets/images/optimized/rev-1a281f8/resimpli.com/wp-content/themes/REsimpli/images/google-pay.svg" alt="Google Play Store" /></a>
+      </div>
+      <div class="foot-copy">© <span id="yr"></span> REsimpli · <a href="https://resimpli.com/privacy-policy/">Privacy</a> · <a href="https://resimpli.com/terms-and-condition/">Terms</a></div>
+    </div>
+    <p class="disclaimer">
+      BatchDialer is a trademark of its respective owner and BatchLeads is a trademark of its respective owner (a sister product from the same company); neither is affiliated with,
+      endorsed by, or sponsored by REsimpli. All product names and marks are used for identification and comparison purposes only. Pricing reflects BatchDialer's and BatchLeads'
+      published rates at batchdialer.com/pricing and batchleads.io believed accurate as of publication; per-agent plan price, Lead Lists add-ons, and CRM/list-stacking costs may vary
+      based on which plan and add-ons you select — verify current details on each provider's website. Cost estimates on this page assume BatchDialer's per-agent Starter plan price,
+      billed annually, plus enough Lead Lists volume to approximate REsimpli Pro's 20,000 List Builder credits — BatchDialer's Lead Lists are sold in 10,000/mo increments at $119/mo,
+      so matching 20,000/mo is approximated here as two of that tier ($238/mo, flat and account-wide, not per agent). BatchDialer's own built-in CRM is call-tracking only, not a full
+      investor CRM; BatchLeads Growth ($71/mo billed annually) is used here as a comparable real CRM cost. BatchLeads Growth also includes list stacking natively; that feature is
+      cited separately at BatchLeads' $119/mo monthly rate rather than the annual rate used for the CRM figure above — note this uses a different billing basis for the same
+      underlying plan. BatchDialer does not sell an investor website product, so a generic third-party website builder is assumed at $89/mo, not a BatchDialer-published price.
+      Cost figures shown are illustrative estimates.
+    </p>
+  </div>
+</footer>
+
+<!-- ============ MOBILE NAV TOGGLE ============ -->
+<script>
+(function(){
+  var btn = document.getElementById('navToggle');
+  var panel = document.getElementById('navPanel');
+  if(!btn || !panel) return;
+  function setOpen(open){
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    panel.classList.toggle('open', open);
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+  btn.addEventListener('click', function(){ setOpen(btn.getAttribute('aria-expanded') !== 'true'); });
+  panel.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ setOpen(false); }); });
+  window.addEventListener('resize', function(){ if(window.innerWidth > 860) setOpen(false); });
+})();
+</script>
+
+<!-- ============ CALCULATOR LOGIC ============ -->
+<script>
+(function(){
+  var reps=document.getElementById('reps'), mins=document.getElementById('mins'), sms=document.getElementById('sms');
+  var repsV=document.getElementById('repsV'), minsV=document.getElementById('minsV'), smsV=document.getElementById('smsV');
+  var minsCtrl=document.getElementById('minsCtrl'), smsCtrl=document.getElementById('smsCtrl');
+  var annualBtn=document.getElementById('annual'), monthlyBtn=document.getElementById('monthly');
+  var planBtns={ basic:document.getElementById('planBasic'), pro:document.getElementById('planPro'), ent:document.getElementById('planEnt') };
+  var singleBtn=document.getElementById('single'), multiBtn=document.getElementById('multi');
+  var outSp=document.getElementById('outSp'), outRe=document.getElementById('outRe'),
+      outSave=document.getElementById('outSave'), outYear=document.getElementById('outYear'),
+      capPrefix=document.getElementById('capPrefix'), capSuffix=document.getElementById('capSuffix'), capTail=document.getElementById('capTail'),
+      spNote=document.getElementById('spNote'), reNote=document.getElementById('reNote'),
+      reName=document.getElementById('reName'), repsNote=document.getElementById('repsNote'),
+      incTitle=document.getElementById('incTitle'), incBody=document.getElementById('incBody'),
+      incList=document.getElementById('incList');
+  var CK='<svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M4 10.5l3.5 3.5L16 5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+  var annual=true, selectedPlan='pro'; // REsimpli plan defaults to Pro
+  // BatchDialer's plan tier is fixed at Starter, not user-toggleable — matching the standard used
+  // on this site's other comparison pages, where the only plan toggle shown is REsimpli's own.
+  var selectedBd='starter';
+
+  // Published BatchDialer rates — verified at batchdialer.com/pricing. Priced per agent; annual
+  // billing shows the effective per-agent monthly rate (matches BatchDialer's own displayed figures).
+  var BD = {
+    starter:{ monthly:119, annual:95 },
+    pro:{ monthly:189, annual:151 },
+    enterprise:{ monthly:249, annual:199 }
+  };
+  // Lead Lists is a flat, account-wide add-on on BatchDialer's own pricing page, sold in 10,000/mo
+  // increments at $119/mo. REsimpli Pro includes 20,000 List Builder credits/mo free; matching that
+  // volume on BatchDialer means buying the 10,000/mo tier twice over ($119 × 2 = $238/mo).
+  var LEADLIST_20K = 119*2;
+  // BatchDialer's own built-in CRM is call-tracking only, not a full investor CRM. A comparable real
+  // CRM — BatchLeads Growth — costs $71/mo billed annually (verified via BatchLeads' published pricing).
+  var CRM_GROWTH = 71;
+  // BatchDialer has no investor website product; a generic third-party website builder is assumed at $89/mo.
+  var WEBSITE_ASSUMED = 89;
+  // BatchDialer has no list stacking feature. BatchLeads Growth (a sister product) includes list
+  // stacking natively; cited here at its $119/mo monthly rate (vs. $71/mo billed annually, used for
+  // the CRM row above) — note this uses a different billing basis than the CRM figure.
+  var LISTSTACKING_BATCHLEADS = 119;
+
+  // REsimpli additional-user fee: $99/user/mo on every plan, the same under annual or monthly billing.
+  var ADDL_USER=99;
+
+  // REsimpli pay-as-you-go overage rates for standard usage beyond a plan's included allocation.
+  // Source: REsimpli pricing page "Add-ons & usage pricing" table. The Unlimited plan is excluded —
+  // its
+  // allocation is unlimited under fair use, so overage never applies there.
+  var OVERAGE={
+    basic:{ min:0.05, sms:0.02 },
+    pro:{ min:0.04, sms:0.02 }
+  };
+
+  // REsimpli plan tiers — order matters (used to auto-upgrade when usage exceeds a lower tier's allocation).
+  // Pricing matches the published REsimpli pricing/calculator page (source of truth), not invented figures.
+  var TIERS=['basic','pro','ent'];
+  var PLAN={
+    basic:{ name:'Basic', annual:199, monthly:299, incUsers:1, incMinutes:1000, phones:'1 phone number', skipCredits:'10,000',
+      title:'Basic includes 1,000 standard calling minutes and SMS per month.',
+      body:'Standard calls and SMS come from your monthly plan allocation; additional standard usage is pay-as-you-go' },
+    pro:{ name:'Pro', annual:499, monthly:599, incUsers:5, incMinutes:5000, phones:'5 phone numbers', skipCredits:'20,000',
+      title:'Pro includes 5,000 standard calling minutes and SMS per month.',
+      body:'Standard calls and SMS come from your monthly plan allocation; additional standard usage is pay-as-you-go' },
+    ent:{ name:'Unlimited', annual:1999, monthly:2499, incUsers:15, incMinutes:Infinity, phones:'15 phone numbers', skipCredits:'50,000',
+      title:'The Unlimited plan includes uncapped standard calling and SMS, fair use applies.',
+      body:'No per-minute meter for standard calls and no per-message meter for standard SMS. AI calling and AI SMS remain metered.' }
+  };
+
+  function fmt(n){return '$'+Math.round(n).toLocaleString('en-US');}
+
+  function setPlanButtons(){
+    TIERS.forEach(function(k){ planBtns[k].setAttribute('aria-pressed', k===selectedPlan ? 'true':'false'); });
+    var isEnt = selectedPlan==='ent';
+    minsCtrl.classList.toggle('is-unlimited', isEnt);
+    smsCtrl.classList.toggle('is-unlimited', isEnt);
+  }
+
+  function calc(){
+    var r=+reps.value;
+    repsV.textContent=r;
+    reps.setAttribute('aria-valuenow', r);
+    reps.setAttribute('aria-valuetext', r+' agent'+(r>1?'s':''));
+    var minsVal=+mins.value, smsVal=+sms.value;
+    minsV.textContent=minsVal.toLocaleString('en-US');
+    smsV.textContent=smsVal.toLocaleString('en-US');
+
+    // ---- BatchDialer side: per-agent tiered pricing, billed the same under annual/monthly toggle
+    // as REsimpli (BatchDialer does offer an annual discount, unlike some competitors). Unaffected
+    // by minutes/SMS sliders (unlimited calling, no SMS product at all). Driven by agent count,
+    // plan tier only — no add-ons assumed. ----
+    var bdRate = annual ? BD[selectedBd].annual : BD[selectedBd].monthly;
+    var mj = bdRate*r + LEADLIST_20K + CRM_GROWTH + WEBSITE_ASSUMED + LISTSTACKING_BATCHLEADS;
+
+    // ---- REsimpli side: price is driven by the SELECTED plan only — REsimpli never silently
+    // switches plans. If minutes/SMS exceed the selected plan's included allocation, the excess
+    // is billed pay-as-you-go at REsimpli's published per-minute / per-SMS overage rate. The Unlimited plan
+    // is unlimited under fair use, so its price never moves with the usage sliders. ----
+    var info = PLAN[selectedPlan];
+    var basePrice = annual ? info.annual : info.monthly;
+    var extraUsers = Math.max(0, r - info.incUsers);
+    var addl = extraUsers * ADDL_USER;
+
+    var overMinUnits=0, overSmsUnits=0, overMinCost=0, overSmsCost=0;
+    if(selectedPlan!=='ent'){
+      var rate = OVERAGE[selectedPlan];
+      overMinUnits = Math.max(0, minsVal - info.incMinutes);
+      overSmsUnits = Math.max(0, smsVal - info.incMinutes); // SMS shares the same published allocation number as minutes
+      overMinCost = overMinUnits * rate.min;
+      overSmsCost = overSmsUnits * rate.sms;
+    }
+    var overageTotal = overMinCost + overSmsCost;
+
+    var re = basePrice + addl + overageTotal;
+
+    var save = mj - re;
+
+    var saveMonthly = save>0 ? Math.round(save) : 0;
+    outSp.innerHTML=fmt(mj)+'<span class="permo">/mo</span>';
+    outRe.innerHTML=fmt(re)+'<span class="permo">/mo</span>';
+    if(saveMonthly>0){
+      outYear.textContent = fmt(saveMonthly*12);
+      outSave.textContent = fmt(saveMonthly);
+      capPrefix.textContent = 'Estimated annual savings';
+      capSuffix.textContent = 'estimated monthly savings';
+      capTail.style.display = '';
+    } else {
+      // BatchDialer Starter's stripped-down price can undercut REsimpli at this team size — rather
+      // than show a misleading "$0 savings" as the headline, lead with what the price gap buys.
+      outYear.textContent = 'SMS + Full CRM';
+      capPrefix.textContent = "BatchDialer's lower price skips this, plus 1-on-1 onboarding — all included in REsimpli";
+      capTail.style.display = 'none';
+    }
+
+    spNote.textContent = 'BatchDialer Starter × '+r+' agent'+(r>1?'s':'')+' + 20,000 Leads/mo + BatchLeads Growth + Website';
+
+    reName.textContent = info.name;
+    var usersPart = extraUsers>0
+      ? info.incUsers+' users + '+extraUsers+' additional'
+      : 'up to '+info.incUsers+' user'+(info.incUsers>1?'s':'');
+    reNote.textContent = overageTotal>0 ? info.name+' · '+usersPart+' + overage' : info.name+' · '+usersPart;
+
+    var capNote = selectedPlan==='basic'
+      ? 'Basic includes 1,000 standard minutes &amp; SMS per month; extra usage is pay-as-you-go at $0.05/min and $0.02/SMS.'
+      : selectedPlan==='pro'
+        ? 'Pro includes 5,000 standard minutes &amp; SMS per month; extra usage is pay-as-you-go at $0.04/min and $0.02/SMS.'
+        : (extraUsers>0
+            ? 'Unlimited covers 15 users; the extra '+extraUsers+' agent'+(extraUsers>1?'s are':' is')+' added at $99/user/mo (same for annual or monthly).'
+            : 'Unlimited covers up to 15 users, with uncapped standard calling &amp; SMS under fair use.');
+    repsNote.innerHTML = capNote;
+    repsNote.classList.toggle('warn', extraUsers>0 || overageTotal>0);
+
+    incTitle.textContent = info.title;
+    incBody.textContent = info.body;
+
+    var list=['Triple line dialer — no per-agent fee', 'SMS included — BatchDialer has none', 'A complete investor CRM built in — BatchDialer needs BatchLeads Growth ($71/mo) for a real CRM', '20,000 List Builder credits/mo included — BatchDialer charges $238/mo for the same volume', 'List stacking included — BatchDialer needs BatchLeads Growth ($119/mo) for the same feature', 'Investor websites built in — BatchDialer needs a separate $89/mo website tool'];
+    incList.innerHTML = list.map(function(item){
+      return '<li>'+CK+'<span>'+item+'</span></li>';
+    }).join('');
+  }
+
+  [reps,mins,sms].forEach(function(el){el.addEventListener('input',calc);});
+  annualBtn.addEventListener('click',function(){annual=true;annualBtn.setAttribute('aria-pressed','true');monthlyBtn.setAttribute('aria-pressed','false');calc();});
+  // Dialer type toggle is informational only — BatchDialer Starter's line count is fixed at 3
+  // per agent regardless of selection, and REsimpli includes both single-line and triple-line
+  // dialing on every plan either way, so neither total changes when this is switched.
+  singleBtn.addEventListener('click',function(){singleBtn.setAttribute('aria-pressed','true');multiBtn.setAttribute('aria-pressed','false');});
+  multiBtn.addEventListener('click',function(){multiBtn.setAttribute('aria-pressed','true');singleBtn.setAttribute('aria-pressed','false');});
+  monthlyBtn.addEventListener('click',function(){annual=false;monthlyBtn.setAttribute('aria-pressed','true');annualBtn.setAttribute('aria-pressed','false');calc();});
+  TIERS.forEach(function(k){
+    planBtns[k].addEventListener('click',function(){
+      selectedPlan=k; setPlanButtons();
+      var info = PLAN[k];
+      reps.value = Math.min(info.incUsers, +reps.max);
+      if(k==='ent'){
+        mins.value = mins.max;
+        sms.value = sms.max;
+      } else {
+        mins.value = info.incMinutes;
+        sms.value = info.incMinutes;
+      }
+      calc();
+    });
+  });
+
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  setPlanButtons();
+  calc();
+})();
+</script>
+
+<!-- ============ STRUCTURED DATA ============ -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+ {"@type":"ListItem","position":1,"name":"Home","item":"https://resimpli.com/"},
+ {"@type":"ListItem","position":2,"name":"BatchDialer Alternative","item":"https://resimpli.com/batchdialer-alternative"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+ {"@type":"Question","name":"Is REsimpli a replacement for BatchDialer?","acceptedAnswer":{"@type":"Answer","text":"REsimpli includes a single-line dialer, triple-line dialer, standard SMS, and a full real estate investor CRM in one platform. It replaces BatchDialer's per-agent plan pricing, the Lead Lists add-on, and the standalone CRM most BatchDialer users still run, without a per-agent licensing stack."}},
+ {"@type":"Question","name":"How is REsimpli's pricing different from BatchDialer's?","acceptedAnswer":{"@type":"Answer","text":"BatchDialer bills per agent — $119/mo Starter, $189/mo Pro, or $249/mo Enterprise (or $95, $151, $199 per agent billed annually) — plus Lead Lists ($49 to $119/mo flat) and extra phone numbers ($1 to $2 each). REsimpli is one predictable plan price per tier — Basic $199, Pro $499, Unlimited $1,999 per month billed annually (or $299, $599, $2,499 monthly) — with both dialers, SMS, and the CRM built in."}},
+ {"@type":"Question","name":"Does BatchDialer support texting or SMS?","acceptedAnswer":{"@type":"Answer","text":"No. BatchDialer's published pricing and feature list have no SMS or texting product. REsimpli includes standard SMS as part of your plan allocation — 1,000 per month on Basic, 5,000 per month on Pro, and unlimited under a fair-use policy on the Unlimited plan."}},
+ {"@type":"Question","name":"Does BatchDialer have a built-in CRM?","acceptedAnswer":{"@type":"Answer","text":"BatchDialer includes a limited built-in CRM for call results, appointments, and notes, but it has no pipeline stages, list stacking, drip automation, dispo, or accounting. REsimpli includes all of that as a full investor CRM, not just a call log."}},
+ {"@type":"Question","name":"Can I keep my current phone numbers when switching from BatchDialer?","acceptedAnswer":{"@type":"Answer","text":"In all cases, numbers can be ported into REsimpli, and the onboarding team walks you through the process so you do not lose your marketing numbers."}}]}
+</script>
+</body>
+</html>
