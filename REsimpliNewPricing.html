@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>REsimpli Pricing — One app to replace them all</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  @font-face{font-family:Gilroy;font-style:normal;font-weight:800;font-display:swap;src:url("https://cdn-cnkod.nitrocdn.com/ruoSwcGkrfAFJBwhAOTHwBdIwFhKZZHX/assets/static/source/rev-5cb5d17/resimpli.com/wp-content/themes/REsimpli/fonts/GilroyExtraBold.woff2") format("woff2")}
+  @font-face{font-family:Gilroy;font-style:normal;font-weight:700;font-display:swap;src:url("https://cdn-cnkod.nitrocdn.com/ruoSwcGkrfAFJBwhAOTHwBdIwFhKZZHX/assets/static/source/rev-5cb5d17/resimpli.com/wp-content/themes/REsimpli/fonts/GilroyBold.woff2") format("woff2")}
+  @font-face{font-family:Gilroy;font-style:normal;font-weight:900;font-display:swap;src:url("https://cdn-cnkod.nitrocdn.com/ruoSwcGkrfAFJBwhAOTHwBdIwFhKZZHX/assets/static/source/rev-5cb5d17/resimpli.com/wp-content/themes/REsimpli/fonts/GilroyBlack.woff2") format("woff2")}
+</style>
+<style>
+  :root{
+    --teal:#008088;
+    --teal-dark:#006269;
+    --teal-tint:#e6f2f2;
+    --teal-tint-2:#f2f9f9;
+    --ink:#12211f;
+    --slate:#4a5c5a;
+    --muted:#8a9997;
+    --line:#e4eae9;
+    --line-strong:#cdd8d6;
+    --bg:#ffffff;
+    --bg-soft:#f7faf9;
+    --coral:#f26d5b;
+    --star:#f5a623;
+    --radius:14px;
+    --shadow-sm:0 1px 2px rgba(18,33,31,.06);
+    --shadow-md:0 6px 24px rgba(18,33,31,.08);
+    --shadow-lg:0 18px 48px rgba(0,128,136,.14);
+    --maxw:1140px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Manrope',system-ui,-apple-system,sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:0;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+
+  /* ---------- Nav ---------- */
+  nav{
+    position:sticky;top:0;z-index:60;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .logo{display:flex;align-items:center;gap:9px;font-weight:800;font-size:21px;letter-spacing:-.02em}
+  .logo .mark{width:26px;height:26px;border-radius:7px;background:var(--teal);display:grid;place-items:center;color:#fff;font-size:15px}
+  .nav-links{display:flex;gap:26px;font-size:14.5px;font-weight:500;color:var(--slate)}
+  .nav-links a:hover{color:var(--teal)}
+  .nav-cta{display:flex;align-items:center;gap:16px}
+  .nav-cta .login{font-weight:600;font-size:14.5px;color:var(--slate)}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    font-family:inherit;font-weight:700;font-size:15px;cursor:pointer;
+    border:none;border-radius:10px;padding:12px 20px;transition:.16s ease;
+    background:var(--teal);color:#fff;box-shadow:var(--shadow-sm);
+  }
+  .btn:hover{background:var(--teal-dark);transform:translateY(-1px);box-shadow:var(--shadow-md)}
+  .btn.small{padding:10px 16px;font-size:14px}
+  .btn.outline{background:#fff;color:var(--teal);border:1.5px solid var(--teal)}
+  .btn.outline:hover{background:var(--teal-tint)}
+  .btn.block{width:100%}
+  @media(max-width:860px){.nav-links{display:none}.nav-cta .login{display:none}}
+
+  /* ---------- Hero (compact) ---------- */
+  header.hero{text-align:center;padding:52px 0 0}
+  h1{font-family:Gilroy,'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;font-size:clamp(26px,6.5vw,54px);line-height:1.05;letter-spacing:-.03em;font-weight:800;margin:0 auto;max-width:26ch}
+  h1 .line1{display:block;color:var(--ink)}
+  h1 .line1 .teal-word{color:var(--teal)}
+  h1 .line2{display:block;font-weight:800;margin-top:2px}
+  @media(min-width:701px){
+    h1{max-width:none;font-size:clamp(30px,4.6vw,54px)}
+    h1 .line1{white-space:nowrap}
+  }
+  .rot-text{display:inline-block;text-align:center;white-space:nowrap;color:var(--teal);transition:opacity .12s ease, transform .12s ease}
+  .subhead{font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;font-size:clamp(15px,1.8vw,17px);color:var(--slate);max-width:56ch;margin:12px auto 0;font-weight:500}
+  .subhead strong{color:var(--ink);font-weight:800}
+
+  /* ---------- Trust strip (below pricing) ---------- */
+  .trust{margin:32px 0 0}
+  .trust-inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 30px;padding:16px 22px;background:var(--bg-soft);border:1px solid var(--line);border-radius:14px}
+  .stars{display:flex;gap:2px;color:var(--star);font-size:17px}
+  .trust-item{display:flex;align-items:center;gap:9px;font-size:14.5px;color:var(--slate);font-weight:600}
+  .trust-item b{color:var(--ink)}
+  .trust-sep{width:1px;height:26px;background:var(--line-strong)}
+  @media(max-width:680px){.trust-sep{display:none}}
+
+  /* ---------- Billing toggle (segmented) ---------- */
+  .toggle-row{display:flex;justify-content:center;margin:32px 0 40px}
+  .billing-seg{display:inline-flex;background:var(--bg-soft);border:1px solid var(--line);border-radius:100px;padding:5px}
+  .billing-seg .seg-btn{display:inline-flex;align-items:center;gap:8px;font-family:inherit;font-weight:700;font-size:15px;color:var(--slate);background:none;border:none;padding:10px 22px;border-radius:100px;cursor:pointer;transition:.15s}
+  .billing-seg .seg-btn.active{background:var(--teal);color:#fff;box-shadow:var(--shadow-sm)}
+  .save-pill{font-size:12px;font-weight:800;color:var(--teal);background:var(--teal-tint);padding:3px 9px;border-radius:100px}
+  .billing-seg .seg-btn.active .save-pill{color:var(--teal);background:#fff}
+  .bill-tip-wrap{position:relative;display:inline-flex}
+  .bill-tip-box{visibility:hidden;opacity:0;position:absolute;bottom:120%;left:50%;transform:translateX(-50%);width:190px;background:var(--ink);color:#fff;font-size:12.5px;font-weight:500;line-height:1.4;padding:9px 11px;border-radius:9px;z-index:40;transition:.15s;box-shadow:var(--shadow-md);text-align:center;pointer-events:none}
+  .bill-tip-box::after{content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:var(--ink)}
+  .bill-tip-wrap:hover .bill-tip-box{visibility:visible;opacity:1}
+
+  /* ---------- Plan cards ---------- */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+  .card{position:relative;border:1.5px solid var(--line);border-radius:var(--radius);padding:32px;background:#fff;display:flex;flex-direction:column;transition:.18s}
+  .card:hover{box-shadow:var(--shadow-md)}
+  .card.featured{border-color:var(--teal);box-shadow:var(--shadow-lg)}
+  .badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--teal);color:#fff;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:6px 15px;border-radius:100px;box-shadow:var(--shadow-sm)}
+  .badge.badge-value{background:#5fdbe2;color:#08343a;box-shadow:var(--shadow-sm)}
+  .plan-name{font-family:Gilroy,'Plus Jakarta Sans',sans-serif;font-size:24px;font-weight:800;color:var(--teal);letter-spacing:-.01em}
+  .plan-for{font-size:14px;color:var(--muted);font-weight:600;margin-top:3px}
+  .price-block{margin:18px 0 2px;min-height:56px}
+  .price{display:flex;align-items:baseline;gap:6px}
+  .price .amt{font-family:Gilroy,'Plus Jakarta Sans',sans-serif;font-size:44px;font-weight:800;letter-spacing:-.03em;line-height:1}
+  .price .per{font-size:14.5px;color:var(--muted);font-weight:600}
+  .price-note{font-size:13px;color:var(--slate);font-weight:600;margin-top:9px}
+  .price-note .price-save{color:var(--teal);font-weight:800}
+  .price-save{color:var(--teal);font-weight:700}
+  .card .btn{margin-top:20px}
+  .reassure{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:5px 10px;font-size:12.5px;color:var(--muted);text-align:center;margin-top:12px;font-weight:600;line-height:1.4}
+  .reassure .item{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+  .dot{color:var(--teal);font-size:9px;position:relative;top:-1px}
+  /* seat allocation highlight */
+  .seat-block{margin-top:14px;padding:11px 14px;background:var(--teal-tint-2);border:1px solid var(--teal-tint);border-radius:11px}
+  .seat-line{display:flex;align-items:center;gap:9px;font-size:15px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+  .seat-line .seat-ico{flex:none;color:var(--teal)}
+  .seat-line b{color:var(--teal);font-weight:800}
+  .seat-sub{font-size:12.5px;color:var(--slate);font-weight:600;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line-strong)}
+  .seat-sub b{color:var(--ink);font-weight:800}
+  .cf-label{margin-top:24px;padding-top:20px;border-top:1px solid var(--line);font-size:12px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+  .cf-label b{color:var(--teal);font-weight:800}
+  .card-feats{margin-top:14px;display:flex;flex-direction:column;gap:11px}
+  .card-feats .cf{display:flex;gap:9px;font-size:14.5px;color:var(--ink);font-weight:600;align-items:flex-start;line-height:1.35}
+  .card-feats .cf .ck{color:var(--teal);flex:none;margin-top:1px}
+  .card-feats .cf b{font-weight:800}
+
+  /* ---------- Premium Unlimited (dark) ---------- */
+  .card.ent-premium{background:linear-gradient(165deg,#0d1c1b 0%,#12211f 52%,#0a2d2e 100%);border-color:#0a2d2e;color:#eaf3f2;box-shadow:var(--shadow-lg)}
+  .card.ent-premium:hover{box-shadow:0 22px 56px rgba(0,128,136,.3)}
+  .card.ent-premium .plan-name{color:#5fdbe2}
+  .card.ent-premium .plan-for{color:#8fb0ad}
+  .card.ent-premium .price .amt{color:#fff}
+  .card.ent-premium .price .per{color:#8fb0ad}
+  .card.ent-premium .price-note{color:#b9cecc}
+  .card.ent-premium .price-strike{color:#8fb0ad}
+  .card.ent-premium .price-save{color:#5fdbe2}
+  .card.ent-premium .reassure{color:#8fb0ad}
+  .card.ent-premium .seat-block{background:rgba(0,128,136,.18);border-color:rgba(95,219,226,.3)}
+  .card.ent-premium .seat-line{color:#fff}
+  .card.ent-premium .seat-line b,.card.ent-premium .seat-line .seat-ico{color:#5fdbe2}
+  .card.ent-premium .seat-sub{color:#b9cecc;border-top-color:rgba(255,255,255,.16)}
+  .card.ent-premium .seat-sub b{color:#fff}
+  .card.ent-premium .card-allin{background:rgba(0,128,136,.24);color:#5fdbe2}
+  .card.ent-premium .cf-label{border-top-color:rgba(255,255,255,.14);color:#8fb0ad}
+  .card.ent-premium .cf-label b{color:#5fdbe2}
+  .card.ent-premium .card-feats .cf{color:#dcebe9}
+  .card.ent-premium .card-feats .cf .ck{color:#5fdbe2}
+  .card.ent-premium .card-feats .cf b{color:#fff}
+  .card.ent-premium .tip .tip-box{background:#fff;color:var(--ink);box-shadow:0 8px 24px rgba(0,0,0,.35)}
+  .card.ent-premium .tip .tip-box::after{border-top-color:#fff}
+  .card.ent-premium .btn{background:var(--teal)}
+  .card.ent-premium .btn:hover{background:#0aa0a9}
+  .unlim{margin-top:22px;padding:16px;border-radius:12px;background:linear-gradient(150deg,rgba(0,128,136,.3),rgba(95,219,226,.1));border:1px solid rgba(95,219,226,.34)}
+  .unlim-head{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#7fe4ea;margin-bottom:13px}
+  .unlim-head .spark{flex:none}
+  .unlim-list{display:flex;flex-direction:column;gap:10px}
+  .unlim-item{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:700;color:#fff;line-height:1.3}
+  .unlim-item .ck{color:#5fdbe2;flex:none}
+  .invest-note{font-size:12px;color:#9db9b6;font-weight:600;line-height:1.55;margin-top:14px;text-align:center}
+  @media(max-width:900px){.cards{grid-template-columns:1fr;max-width:440px;margin:0 auto}.card.featured{order:-1}}
+
+  /* ---------- Shared section (consistent vertical rhythm) ---------- */
+  .section{padding:52px 0}
+  .section.band{background:var(--bg-soft);padding:64px 0}
+  .eyebrow{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
+  .section-head{text-align:center;max-width:640px;margin:0 auto 36px}
+  .section-head h2{font-size:clamp(26px,3.6vw,38px);letter-spacing:-.02em;font-weight:800;line-height:1.1}
+  .section-head p{color:var(--slate);font-size:16.5px;margin-top:12px;font-weight:500}
+
+  /* ---------- Savings calculator ---------- */
+  .calc{display:grid;grid-template-columns:1fr 340px;gap:24px;align-items:start}
+  .calc-main{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px}
+  .calc-teamrow{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:6px}
+  .calc-teamlabel{font-weight:700;font-size:15px}
+  .seg{display:inline-flex;background:var(--bg-soft);border:1px solid var(--line);border-radius:100px;padding:4px}
+  .seg-btn{font-family:inherit;font-weight:700;font-size:14px;color:var(--slate);background:none;border:none;padding:9px 18px;border-radius:100px;cursor:pointer;transition:.15s}
+  .seg-btn.active{background:var(--teal);color:#fff;box-shadow:var(--shadow-sm)}
+  .calc-hint{font-size:13.5px;color:var(--muted);font-weight:600;margin:10px 0 18px}
+  .tool-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .tool{border:1.5px solid var(--line);border-radius:12px;padding:14px 15px;cursor:pointer;transition:.15s;background:#fff}
+  .tool:hover{border-color:var(--line-strong)}
+  .tool.on{border-color:var(--teal);background:var(--teal-tint-2)}
+  .tool-top{display:flex;align-items:flex-start;gap:11px}
+  .tool-box{width:20px;height:20px;border:2px solid var(--line-strong);border-radius:6px;flex:none;display:grid;place-items:center;margin-top:1px;transition:.15s}
+  .tool.on .tool-box{background:var(--teal);border-color:var(--teal)}
+  .tool-box svg{opacity:0;transition:.15s}
+  .tool.on .tool-box svg{opacity:1}
+  .tool-name{font-weight:700;font-size:15px;line-height:1.2}
+  .tool-cat{font-size:12px;color:var(--muted);font-weight:600;margin-top:2px}
+  .tool-price{display:flex;align-items:center;gap:6px;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);opacity:.45;transition:.15s}
+  .tool.on .tool-price{opacity:1}
+  .tool-capnote{font-size:11.5px;color:var(--muted);font-weight:600;margin-top:6px;line-height:1.35}
+  .tool-price .dollar{font-weight:700;color:var(--slate)}
+  .tool-price input{width:74px;font-family:inherit;font-weight:700;font-size:15px;color:var(--ink);border:1px solid var(--line-strong);border-radius:7px;padding:6px 8px;background:#fff}
+  .tool-price input:disabled{background:var(--bg-soft);color:var(--muted)}
+  .tool-price .unit{font-size:12.5px;color:var(--muted);font-weight:600}
+  .tool-price .seatcalc{font-size:12px;color:var(--teal);font-weight:700;margin-left:auto}
+  .tool-wide{grid-column:1 / -1}
+  .tool-custom{margin-top:12px}
+  .tool-custom input{width:100%;font-family:inherit;font-weight:600;font-size:14.5px;color:var(--ink);border:1px solid var(--line-strong);border-radius:8px;padding:9px 12px;background:#fff}
+  .tool-custom input::placeholder{color:var(--muted);font-weight:500}
+
+  .calc-result{position:sticky;top:84px;background:#fff;border:1.5px solid var(--teal);border-radius:20px;padding:24px;box-shadow:var(--shadow-lg)}
+  .cr-row{display:flex;justify-content:space-between;align-items:center;font-size:13.5px;color:var(--muted);font-weight:600;margin-bottom:14px}
+  .cr-row b{color:var(--ink)}
+  .cr-now,.cr-vs{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--line)}
+  .cr-lbl{font-size:14px;color:var(--slate);font-weight:600}
+  .cr-amt{font-size:26px;font-weight:800;letter-spacing:-.02em}
+  .cr-amt.teal{color:var(--teal)}
+  .cr-per{font-size:13px;color:var(--muted);font-weight:600}
+  .cr-save{text-align:center;padding:20px 0 18px;margin:6px 0 16px;background:var(--teal-tint-2);border-radius:14px}
+  .cr-save-big{font-size:42px;font-weight:800;color:var(--teal);letter-spacing:-.03em;line-height:1}
+  .cr-save-lbl{font-size:13.5px;color:var(--slate);font-weight:700;margin-top:6px;padding:0 14px}
+  .calc-foot{font-size:12.5px;color:var(--muted);font-weight:600;line-height:1.6;margin-top:16px;max-width:70ch}
+  @media(max-width:900px){
+    .calc{grid-template-columns:1fr}
+    .calc-result{position:static;order:2}
+    .tool-grid{grid-template-columns:1fr}
+  }
+
+  /* ---------- Testimonial ---------- */
+  .quote{max-width:820px;margin:0 auto;text-align:center;padding:8px 0}
+  .quote .stars{justify-content:center;margin-bottom:16px}
+  .quote blockquote{font-size:clamp(19px,2.6vw,25px);font-weight:700;letter-spacing:-.01em;line-height:1.34;color:var(--ink)}
+  .quote .who{margin-top:18px;font-size:14.5px;color:var(--slate);font-weight:600}
+  .quote .who b{color:var(--ink)}
+
+  /* ---------- Comparison ---------- */
+  .compare-toggle{display:flex;justify-content:center;margin-bottom:8px}
+  .cmp-btn{display:inline-flex;align-items:center;gap:11px;font-family:inherit;font-weight:800;font-size:15px;letter-spacing:-.01em;color:var(--teal);background:var(--teal-tint);border:1.5px solid var(--teal);border-radius:100px;padding:12px 14px 12px 22px;cursor:pointer;box-shadow:var(--shadow-sm);transition:background .18s ease,color .18s ease,box-shadow .18s ease,transform .18s ease}
+  .cmp-btn:hover{background:var(--teal);color:#fff;transform:translateY(-1px);box-shadow:var(--shadow-md)}
+  .cmp-btn .chev{width:26px;height:26px;display:grid;place-items:center;border-radius:100px;background:var(--teal);color:#fff;transition:transform .25s ease,background .18s ease,color .18s ease}
+  .cmp-btn:hover .chev{background:#fff;color:var(--teal)}
+  .cmp-btn.open .chev{transform:rotate(180deg)}
+
+  .cmp-wrap{overflow:hidden;transition:max-height .35s ease}
+  .cmp-wrap.expanded{overflow:visible}
+  .plan-tabs{display:none}
+  .cmp-table-scroll{overflow:visible}
+  table.cmp{width:100%;border-collapse:collapse;font-size:14.5px}
+  table.cmp thead th{position:sticky;top:66px;z-index:20;background:#fff;box-shadow:0 8px 14px -10px rgba(18,33,31,.16)}
+  .thead-cell{padding:16px 12px 18px;text-align:center;border-bottom:1px solid var(--line)}
+  .thead-cell.feat{text-align:left}
+  .thead-cell .tp-name{font-weight:800;font-size:16px}
+  .thead-cell.pro .tp-name{color:var(--teal)}
+  .thead-cell .tp-price{font-size:13px;color:var(--muted);font-weight:600;margin:2px 0 10px}
+  .thead-cell .tp-price b{color:var(--ink);font-size:15px}
+  table.cmp .grp-row td{background:none;color:var(--muted);font-weight:800;font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;text-align:left;padding:30px 12px 10px;border-bottom:1px solid var(--line)}
+  table.cmp .grp-row:first-child td{padding-top:14px}
+  table.cmp tbody td{padding:13px 12px;text-align:center;border-bottom:1px solid var(--line);color:var(--slate);font-weight:600;vertical-align:middle}
+  table.cmp tbody td.feat{text-align:left;color:var(--ink);font-weight:600}
+  .ck-cell{color:var(--teal);font-size:17px}
+  .no-cell{color:var(--line-strong);font-weight:700}
+  .val-strong{color:var(--ink);font-weight:700}
+  .foot-ref{color:var(--teal);font-weight:700;font-size:11px;vertical-align:super;cursor:help}
+
+  /* tooltip */
+  .tip{position:relative;border-bottom:1px dotted var(--muted);cursor:help}
+  .tip .tip-box{visibility:hidden;opacity:0;position:absolute;bottom:135%;left:50%;transform:translateX(-50%);width:230px;background:var(--ink);color:#fff;font-size:12.5px;font-weight:500;line-height:1.45;padding:10px 12px;border-radius:9px;z-index:40;transition:.15s;box-shadow:var(--shadow-md);text-align:left}
+  .tip .tip-box::after{content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:var(--ink)}
+  .tip:hover .tip-box,.tip:focus .tip-box{visibility:visible;opacity:1}
+
+  /* accordion (add-ons / faq) */
+  .acc{border:1px solid var(--line);border-radius:12px;margin-top:14px;overflow:hidden;background:#fff}
+  .acc-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 20px;cursor:pointer;font-weight:700;font-size:16px}
+  .acc-head:hover{background:var(--bg-soft)}
+  .acc-head .chev{transition:.2s;color:var(--muted);flex:none}
+  .acc.open .acc-head .chev{transform:rotate(180deg)}
+  .acc-body{max-height:0;overflow:hidden;transition:max-height .3s ease}
+  .acc-inner{padding:4px 20px 22px}
+  .addon-note{font-size:13.5px;color:var(--slate);background:var(--teal-tint-2);border-left:3px solid var(--teal);padding:11px 14px;border-radius:8px;margin:6px 0 16px;font-weight:600}
+  .addon-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -2px}
+  table.addon{width:100%;border-collapse:collapse;font-size:14.5px}
+  @media(max-width:640px){table.addon{min-width:520px}}
+  table.addon th{text-align:left;font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);padding:8px 10px;border-bottom:1px solid var(--line)}
+  table.addon th.r,table.addon td.r{text-align:right}
+  table.addon td{padding:11px 10px;border-bottom:1px solid var(--line);color:var(--slate);font-weight:600}
+  table.addon td.item{color:var(--ink);font-weight:600}
+  table.addon .same{color:var(--muted);font-weight:600;font-size:13px}
+  .grp-label{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);font-weight:800;margin:20px 0 4px}
+  .grp-label:first-child{margin-top:6px}
+  table.addon .agrp td{color:var(--teal);font-weight:800;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:20px 10px 8px;border-bottom:1px solid var(--line)}
+  table.addon .agrp:first-child td{padding-top:4px}
+
+  .inc-tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1040px;margin:0 auto}
+  .inc-tile{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 20px;transition:.16s ease}
+  .inc-tile:hover{box-shadow:var(--shadow-md);transform:translateY(-2px);border-color:var(--line-strong)}
+  .inc-ico{width:42px;height:42px;border-radius:12px;background:var(--teal-tint);color:var(--teal);display:grid;place-items:center;margin-bottom:14px}
+  .inc-tile h4{font-size:15px;font-weight:800;letter-spacing:-.01em;color:var(--ink);line-height:1.25}
+  .inc-tile p{font-size:12.5px;color:var(--slate);font-weight:500;margin-top:5px;line-height:1.45}
+  .inc-foot{text-align:center;margin-top:26px;font-size:14px;color:var(--slate);font-weight:600}
+  .inc-foot b{color:var(--ink);font-weight:800}
+  @media(max-width:900px){.inc-tiles{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.inc-tiles{grid-template-columns:1fr}}
+
+  /* faq */
+  .faq-list{max-width:760px;margin:0 auto}
+  .faq-list .acc-head{font-size:16px}
+
+  /* final cta */
+  .final{background:linear-gradient(135deg,var(--teal),var(--teal-dark));border-radius:24px;text-align:center;padding:56px 28px;color:#fff}
+  .final h2{font-size:clamp(26px,3.6vw,38px);font-weight:800;letter-spacing:-.02em;line-height:1.1}
+  .final p{opacity:.9;font-size:17px;margin:14px auto 26px;max-width:48ch;font-weight:500}
+  .final .btn{background:#fff;color:var(--teal);font-size:16px;padding:15px 30px}
+  .final .btn:hover{background:#f0f7f7}
+  .final .reassure{color:rgba(255,255,255,.85);margin-top:16px}
+  .final .reassure .dot{color:#fff}
+
+  /* footer */
+  footer{border-top:1px solid var(--line);padding:52px 0 40px;margin-top:20px}
+  .foot-grid{display:grid;grid-template-columns:1.4fr repeat(4,1fr);gap:28px}
+  .foot-col h4{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;font-weight:800}
+  .foot-col a{display:block;font-size:14px;color:var(--slate);font-weight:600;margin-bottom:9px}
+  .foot-col a:hover{color:var(--teal)}
+  .foot-note{text-align:center;color:var(--muted);font-size:13px;font-weight:600;margin-top:36px}
+  @media(max-width:760px){.foot-grid{grid-template-columns:1fr 1fr}}
+
+  .cmp-footnote{font-size:13px;color:var(--muted);font-weight:600;margin-top:14px;text-align:left;line-height:1.6}
+  .cmp-footnote b{color:var(--slate)}
+
+  /* sticky mobile CTA */
+  .mobile-cta{position:fixed;left:0;right:0;bottom:0;z-index:80;display:none;background:#fff;border-top:1px solid var(--line);box-shadow:0 -6px 24px rgba(18,33,31,.1);padding:12px 16px calc(12px + env(safe-area-inset-bottom))}
+  .mobile-cta .btn{width:100%}
+  .mobile-cta .mc-note{text-align:center;font-size:11.5px;color:var(--muted);font-weight:600;margin-top:6px}
+  @media(max-width:900px){.mobile-cta{display:block}body{padding-bottom:82px}table.cmp thead th{position:static;box-shadow:none}}
+
+  @media(max-width:760px){
+    .plan-tabs{display:flex;gap:8px;margin:6px 0 14px;position:sticky;top:0;z-index:25;background:#fff;padding:10px 0}
+    .plan-tab{flex:1;text-align:center;font-weight:700;font-size:14px;padding:11px 6px;border:1.5px solid var(--line);border-radius:10px;color:var(--slate);cursor:pointer;background:#fff}
+    .plan-tab.active{border-color:var(--teal);color:var(--teal);background:var(--teal-tint)}
+    .cmp[data-active="basic"] .col-pro,.cmp[data-active="basic"] .col-ent,
+    .cmp[data-active="pro"] .col-basic,.cmp[data-active="pro"] .col-ent,
+    .cmp[data-active="ent"] .col-basic,.cmp[data-active="ent"] .col-pro{display:none}
+    .thead-cell{padding:10px 8px}
+    table.cmp tbody td{padding:12px 8px}
+  }
+  @media(min-width:761px){.plan-tabs{display:none!important}}
+
+  @media(max-width:700px){
+    .section{padding:36px 0}
+    .section.band{padding:44px 0}
+    header.hero{padding:28px 0 0}
+    .section-head{margin-bottom:28px}
+    .final{padding:40px 22px}
+    .final .btn{width:100%}
+    .reassure{gap:6px 8px}
+  }
+  :focus-visible{outline:3px solid rgba(0,128,136,.4);outline-offset:2px;border-radius:4px}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <div class="logo"><span class="mark">R</span>REsimpli</div>
+    <div class="nav-links">
+      <a href="#">Features</a>
+      <a href="#quote">Case Study</a>
+      <a href="#quote">Testimonials</a>
+      <a href="#stack">Compare</a>
+      <a href="#">Resources</a>
+      <a href="#" style="color:var(--teal)">Pricing</a>
+    </div>
+    <div class="nav-cta">
+      <a class="login" href="#">Log in</a>
+      <button class="btn small">Start Free Trial</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <h1><span class="line1">One Platform. <span class="teal-word">Unlimited</span></span><span class="line2"><span class="rot-text" id="rotText">Calling Minutes.</span></span></h1>
+  </div>
+</header>
+
+<section class="wrap cards-section">
+  <div class="toggle-row">
+    <div class="seg billing-seg" id="billingSeg" role="tablist" aria-label="Billing period">
+      <span class="bill-tip-wrap">
+        <button class="seg-btn" data-billing="monthly" role="tab">Monthly</button>
+        <span class="bill-tip-box">Save up to 33% billed annually</span>
+      </span>
+      <button class="seg-btn active" data-billing="yearly" role="tab">Yearly <span class="save-pill">Save up to 33%</span></button>
+    </div>
+  </div>
+
+  <div class="cards" id="cards"></div>
+
+  <div class="trust">
+    <div class="trust-inner">
+      <div class="trust-item">
+        <span class="stars">★★★★★</span>
+        <span>Rated <b>4.8</b> from <b>2,547+</b> investors</span>
+      </div>
+      <span class="trust-sep"></span>
+      <div class="trust-item">Replaces <b>11+</b>&nbsp;separate tools</div>
+      <span class="trust-sep"></span>
+      <div class="trust-item"><b>14-day</b>&nbsp;free trial</div>
+      <span class="trust-sep"></span>
+      <div class="trust-item">Free unlimited onboarding</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="compare-toggle">
+      <button class="cmp-btn" id="cmpToggle" aria-expanded="false">
+        Complete Feature List
+        <span class="chev"><svg width="15" height="15" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </button>
+    </div>
+
+    <div class="cmp-wrap" id="cmpWrap">
+      <div class="plan-tabs" id="planTabs">
+        <div class="plan-tab active" data-plan="basic">Solo</div>
+        <div class="plan-tab" data-plan="pro">Team</div>
+        <div class="plan-tab" data-plan="ent">Business</div>
+      </div>
+
+      <div class="cmp-table-scroll">
+        <table class="cmp" id="cmpTable" data-active="basic"><thead id="cmpHead"></thead><tbody id="cmpBody"></tbody></table>
+      </div>
+
+      <div class="cmp-footnote">
+        <b>*</b> All plans include unlimited standard calling minutes &amp; SMS under our fair use policy. AI calling &amp; AI SMS are billed separately at a per-use rate (see Add-ons &amp; usage pricing). See "What does fair use mean?" in the FAQ.
+      </div>
+
+      <div class="acc" id="accAgents">
+        <div class="acc-head">AI Agents &amp; Bundles <span style="font-weight:600;color:var(--muted);font-size:14px;margin-left:auto;margin-right:10px">optional · priced per plan</span>
+          <svg class="chev" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="acc-body"><div class="acc-inner" id="agentsInner"></div></div>
+      </div>
+
+      <div class="acc" id="accAddon">
+        <div class="acc-head">Add-ons &amp; Usage Pricing
+          <svg class="chev" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="acc-body"><div class="acc-inner" id="addonInner"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section band">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">One platform, every plan</span>
+      <h2>The complete platform, included</h2>
+      <p>No feature gates between tiers. Every plan runs your entire business — you only choose your team size.</p>
+    </div>
+    <div class="inc-tiles" id="incTiles"></div>
+    <div class="inc-foot"><b>Plus</b> unlimited emails, e-signature, KPI dashboards, automation, and more.</div>
+  </div>
+</section>
+
+<section class="section" id="quote">
+  <div class="wrap">
+    <div class="quote">
+      <span class="eyebrow">Real investor results</span>
+      <div class="stars">★★★★★</div>
+      <blockquote>"I went from 1–2 motivated leads every two months to 15–30 a week. REsimpli replaced every tool I was juggling — and my pipeline has never been fuller."</blockquote>
+      <div class="who"><b>Casey Gregersen</b> — Real Estate Investor</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="stack">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">See your savings</span>
+      <h2>See what you'd save by switching</h2>
+      <p>Pick the tools you're paying for today and adjust the amounts to match your bill. We'll show what the same setup costs on REsimpli.</p>
+    </div>
+
+    <div class="calc">
+      <div class="calc-main">
+        <div class="calc-teamrow">
+          <span class="calc-teamlabel">Team size</span>
+          <div class="seg" id="teamSeg" role="tablist" aria-label="Team size">
+            <button class="seg-btn active" data-seats="1" data-plan="basic">Solo</button>
+            <button class="seg-btn" data-seats="5" data-plan="pro">Team of 5</button>
+            <button class="seg-btn" data-seats="15" data-plan="ent">Team of 15</button>
+          </div>
+        </div>
+
+        <p class="calc-hint">Select every tool you currently pay for. Prices are editable — change any figure to match what you actually pay.</p>
+        <div class="tool-grid" id="toolGrid"></div>
+      </div>
+
+      <aside class="calc-result" id="calcResult" aria-live="polite">
+        <div class="cr-row"><span>Your current tools</span><b id="crCount">0 selected</b></div>
+        <div class="cr-now">
+          <span class="cr-lbl">You pay now</span>
+          <span class="cr-amt" id="crNow">$0<span class="cr-per">/mo</span></span>
+        </div>
+        <div class="cr-vs">
+          <span class="cr-lbl">REsimpli <span id="crPlan">Basic</span><br><span style="font-size:11.5px;color:var(--muted)">billed annually</span></span>
+          <span class="cr-amt teal" id="crResimpli">$199<span class="cr-per">/mo</span></span>
+        </div>
+        <div class="cr-save" id="crSaveBox">
+          <div class="cr-save-big" id="crSave">$0</div>
+          <div class="cr-save-lbl" id="crSaveLbl">Select your tools to see savings</div>
+        </div>
+        <button class="btn block">Start Free Trial</button>
+        <div class="reassure">
+          <span class="item"><span class="dot">●</span> 14-day free trial</span>
+          <span class="item"><span class="dot">●</span> Cancel anytime before you're billed</span>
+        </div>
+      </aside>
+    </div>
+    <p class="calc-foot">Competitor prices are editable starting points based on each vendor's current published rates, matched to the plan tier that fits your selected team size. Dialers and DocuSign bill per seat; smrtPhone also bills usage on top. Your own bill is the source of truth — adjust any figure above.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head"><span class="eyebrow">Good to know</span><h2>Frequently asked questions</h2></div>
+    <div class="faq-list" id="faqList"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="final">
+      <h2>Still deciding? Start your free trial.</h2>
+      <p>Set up your whole business in one app and see the difference before you commit.</p>
+      <button class="btn">Start Free Trial</button>
+      <div class="reassure">
+        <span class="item"><span class="dot">●</span> 14-day free trial</span>
+        <span class="item"><span class="dot">●</span> Cancel anytime</span>
+        <span class="item"><span class="dot">●</span> Free unlimited onboarding</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <div class="logo" style="margin-bottom:10px"><span class="mark">R</span>REsimpli</div>
+        <p style="color:var(--muted);font-weight:600;font-size:14px;max-width:26ch">The #1 AI CRM for real estate investors. One app to replace them all.</p>
+      </div>
+      <div class="foot-col"><h4>Product</h4><a href="#">CRM</a><a href="#">AI Agents</a><a href="#">Skip Tracing</a><a href="#">Dialer</a><a href="#">Direct Mail</a></div>
+      <div class="foot-col"><h4>Resources</h4><a href="#">Blog</a><a href="#">Help Center</a><a href="#">Community</a><a href="#">Free Courses</a></div>
+      <div class="foot-col"><h4>Company</h4><a href="#">About Us</a><a href="#">Careers</a><a href="#">Contact</a><a href="#">Press</a></div>
+      <div class="foot-col"><h4>Legal</h4><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Security</a><a href="#">Status</a></div>
+    </div>
+    <div class="foot-note">© 2026 REsimpli. All rights reserved.</div>
+  </div>
+</footer>
+
+<div class="mobile-cta">
+  <button class="btn block">Start Free Trial</button>
+  <div class="mc-note">14-day free trial · Cancel anytime</div>
+</div>
+
+<script>
+const PLANS = [
+  { id:'basic', name:'Solo', for:'For individual investors', yearly:249, monthly:349, featured:false,
+    users:'1', phones:'1', usersTip:'Add up to 3 users', calls:'Unlimited Calling Minutes &amp; SMS', stacking:'20,000 List Stacking Records', pulling:'10,000 List Builder Credits/mo' },
+  { id:'pro', name:'Team', for:'Built for teams up to 5', yearly:699, monthly:899, featured:true,
+    users:'5', phones:'5', usersTip:'Add up to 10 users', calls:'Unlimited Calling Minutes &amp; SMS', stacking:'100,000 List Stacking Records', pulling:'20,000 List Builder Credits/mo' },
+  { id:'ent', name:'Business', for:'Built for teams up to 15', yearly:1799, monthly:2199, featured:false,
+    users:'15', phones:'15', usersTip:'Add unlimited users', calls:'Unlimited Calling Minutes &amp; SMS', stacking:'Unlimited List Stacking Records', pulling:'50,000 List Builder Credits/mo' },
+];
+
+let billing = 'yearly';
+const fmt = n => '$' + n.toLocaleString('en-US');
+const ckSvg = '<svg class="ck" width="17" height="17" viewBox="0 0 20 20" fill="none"><path d="M4 10.5l3.5 3.5L16 5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+const SHARED_FEATS = [
+  {label:'Triple Line Dialer', tip:'Included for all your users'},
+  'Unlimited Calling Minutes &amp; SMS',
+  'Unlimited Emails',
+  'Unlimited List Stacking Records',
+  'Unlimited Cash Buyer Searches',
+  'Unlimited eSignatures',
+  'Unlimited Open API Usage',
+];
+function renderCards(){
+  const el = document.getElementById('cards');
+  el.innerHTML = PLANS.map(p=>{
+    const price = billing==='yearly' ? p.yearly : p.monthly;
+    const saveYr = (p.monthly - p.yearly) * 12;
+    const trial = '14-day free trial';
+    const note = billing==='yearly'
+      ? `<div class="price-note">per month, billed annually · <span class="price-save">you save ${fmt(saveYr)}/yr</span></div>`
+      : `<div class="price-note">per month · <span class="price-save">save ${fmt(saveYr)}/yr</span> paid annually</div>`;
+    return `
+      <div class="card ${p.featured?'featured':''} ${p.id==='ent'?'ent-premium':''}">
+        ${p.featured?'<span class="badge">Most Popular</span>':''}
+        ${p.id==='ent'?'<span class="badge badge-value">Most Value</span>':''}
+        <div class="plan-name">${p.name}</div>
+        <div class="plan-for">${p.for}</div>
+        <div class="price-block">
+          <div class="price"><span class="amt">${fmt(price)}</span><span class="per">/mo</span></div>
+          ${note}
+        </div>
+        <button class="btn block">Start Free Trial</button>
+        <div class="reassure">${trial} · Free onboarding</div>
+        <div class="cf-label"><b>All Features Included:</b></div>
+        <div class="card-feats">
+          <div class="cf">${ckSvg}<span class="tip"><b>${p.users}</b> User${p.users==='1'?'':'s'} Included<span class="tip-box">${p.usersTip}</span></span></div>
+          ${SHARED_FEATS.map(f=> typeof f==='string'
+            ? `<div class="cf">${ckSvg}<span>${f}</span></div>`
+            : `<div class="cf">${ckSvg}<span class="tip">${f.label}<span class="tip-box">${f.tip}</span></span></div>`
+          ).join('')}
+        </div>
+      </div>`;
+  }).join('');
+}
+
+const billingSeg = document.getElementById('billingSeg');
+function setBilling(b){
+  billing = b;
+  billingSeg.querySelectorAll('.seg-btn').forEach(btn=>{
+    const on = btn.dataset.billing===b;
+    btn.classList.toggle('active', on);
+    btn.setAttribute('aria-selected', on);
+  });
+  renderCards(); renderCmpHead();
+}
+billingSeg.addEventListener('click', e=>{
+  const btn = e.target.closest('.seg-btn'); if(!btn) return;
+  setBilling(btn.dataset.billing);
+});
+
+const TIP = {
+  d4d:'Drive neighborhoods and drop pins on distressed properties, then pull owner data on the spot.',
+  api:'Connect REsimpli with ChatGPT, Claude, internal tools, and reporting systems to automate workflows and sync data.',
+  speed:'Auto-routes and dials new leads the moment they come in, so you reach them first.',
+  whisper:'Coach a rep live on a call — only they hear you, the seller doesn\'t.',
+  monitor:'Listen to live agent calls in real time for training and quality control.',
+  barge:'Jump into a live call to take over or assist when a rep needs backup.',
+};
+function tip(label,key){ return `<span class="tip" tabindex="0">${label}<span class="tip-box">${TIP[key]}</span></span>`; }
+const CK=true, NO=false;
+
+const CMP = [
+  {grp:'Users', rows:[
+    {f:'Users', v:['1','5','15']},
+    {f:'Phone Numbers', v:['1','5','15']},
+    {f:'Calling Minutes &amp; SMS', foot:true, v:['Unlimited','Unlimited','Unlimited'], strong:true},
+  ]},
+  {grp:'Data', rows:[
+    {f:'List Stacking', v:['Unlimited','Unlimited','Unlimited'], strong:true},
+    {f:'List Builder', v:['10,000 credits/mo','20,000 credits/mo','50,000 credits/mo']},
+    {f:tip('Driving for Dollars','d4d'), v:[CK,CK,CK]},
+    {f:'Free Monthly Cash Buyer Searches', v:['Unlimited','Unlimited','Unlimited']},
+    {f:'Free Monthly Skip Tracing Credits', v:['10,000 ($1,500 value)','20,000 ($3,000 value)','50,000 ($7,500 value)']},
+  ]},
+  {grp:'Marketing', rows:[
+    {f:'Triple Line Dialer', v:[CK,CK,CK]},
+    {f:tip('Open API','api'), v:['Unlimited','Unlimited','Unlimited']},
+    {f:'Automation', v:[CK,CK,CK]},
+    {f:'Direct Mail', v:[CK,CK,CK]},
+    {f:'Bulk Email &amp; SMS to Buyers', v:['Unlimited','Unlimited','Unlimited']},
+    {f:'Email Tracking', v:[CK,CK,CK]},
+    {f:'Gmail &amp; Outlook Integration', v:[CK,CK,CK]},
+    {f:'SEO-Optimized Seller Website', v:['1 included','1 included','1 included']},
+    {f:'SEO-Optimized Buyer Website', v:['1 included','1 included','1 included']},
+  ]},
+  {grp:'Sales', rows:[
+    {f:'e-Sign', v:[CK,CK,CK]},
+    {f:'Custom Pipelines &amp; Stages', v:[CK,CK,CK]},
+    {f:tip('Speed to Lead','speed'), v:[CK,CK,CK]},
+    {f:'In-App Answering (Web, iOS &amp; Android)', v:[CK,CK,CK]},
+    {f:tip('Agent Whisper','whisper'), v:[CK,CK,CK]},
+    {f:tip('Agent Monitoring','monitor'), v:[CK,CK,CK]},
+    {f:tip('Call Barge','barge'), v:[CK,CK,CK]},
+  ]},
+  {grp:'Operations', rows:[
+    {f:'KPI Dashboard', v:[CK,CK,CK]},
+    {f:'Leaderboard', v:[CK,CK,CK]},
+    {f:'Full Accounting System', v:[CK,CK,CK]},
+    {f:'Daily Productivity Email', v:[CK,CK,CK]},
+    {f:'2-Way Google &amp; Outlook Calendar Integration', v:[CK,CK,CK]},
+    {f:'Dedicated Account Manager', v:[CK,CK,CK]},
+  ]},
+  {grp:'Capacity', rows:[
+    {f:'Buyers &amp; Vendors', v:['2,500','25,000','100,000']},
+    {f:'File Storage', v:['50 GB','200 GB','500 GB']},
+    {f:'iOS &amp; Android App', v:[CK,CK,CK]},
+    {f:'Markets', v:['$50/mo','$50/mo','Unlimited']},
+    {f:'Templates (Automation, SMS, Email, Task)', v:['All included','All included','All included']},
+  ]},
+];
+
+function cell(val){
+  if(val===true) return `<span class="ck-cell">✓</span>`;
+  if(val===false) return `<span class="no-cell" aria-label="Not included">—</span>`;
+  return `<span>${val}</span>`;
+}
+function renderCmpHead(){
+  const price = p => billing==='yearly' ? p.yearly : p.monthly;
+  const cyc = billing==='yearly' ? 'billed yearly' : 'billed monthly';
+  document.getElementById('cmpHead').innerHTML = `
+    <tr>
+      <th class="thead-cell feat"></th>
+      ${PLANS.map(p=>`
+        <th class="thead-cell col-${p.id} ${p.id==='pro'?'pro':''}">
+          <div class="tp-name">${p.name}</div>
+          <div class="tp-price"><b>${fmt(price(p))}</b>/mo ${cyc}</div>
+          <button class="btn small ${p.id==='pro'?'':'outline'}">Start Free Trial</button>
+        </th>`).join('')}
+    </tr>`;
+}
+function renderCmpBody(){
+  let html='';
+  CMP.forEach(sec=>{
+    html += `<tr class="grp-row"><td colspan="4">${sec.grp}</td></tr>`;
+    sec.rows.forEach(r=>{
+      const foot = r.foot ? '<span class="foot-ref">*</span>' : '';
+      html += `<tr>
+        <td class="feat col-feat">${r.f}${foot}</td>
+        <td class="col-basic ${r.strong?'val-strong':''}">${cell(r.v[0])}</td>
+        <td class="col-pro ${r.strong?'val-strong':''}">${cell(r.v[1])}</td>
+        <td class="col-ent ${r.strong?'val-strong':''}">${cell(r.v[2])}</td>
+      </tr>`;
+    });
+  });
+  document.getElementById('cmpBody').innerHTML = html;
+}
+
+document.getElementById('planTabs').addEventListener('click', e=>{
+  const t = e.target.closest('.plan-tab'); if(!t) return;
+  document.querySelectorAll('.plan-tab').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');
+  document.getElementById('cmpTable').setAttribute('data-active', t.dataset.plan);
+});
+
+const cmpWrap = document.getElementById('cmpWrap');
+const cmpToggle = document.getElementById('cmpToggle');
+let cmpOpen = false;
+function openCmp(){
+  cmpOpen = true;
+  cmpToggle.classList.add('open');
+  cmpToggle.setAttribute('aria-expanded','true');
+  cmpWrap.style.maxHeight = cmpWrap.scrollHeight + 'px';
+  const done = (e)=>{
+    if(e.target !== cmpWrap) return;
+    cmpWrap.removeEventListener('transitionend', done);
+    if(cmpOpen){ cmpWrap.style.maxHeight = 'none'; cmpWrap.classList.add('expanded'); }
+  };
+  cmpWrap.addEventListener('transitionend', done);
+}
+function closeCmp(){
+  cmpOpen = false;
+  cmpToggle.classList.remove('open');
+  cmpToggle.setAttribute('aria-expanded','false');
+  cmpWrap.classList.remove('expanded');
+  cmpWrap.style.maxHeight = cmpWrap.scrollHeight + 'px';
+  requestAnimationFrame(()=>{ cmpWrap.style.maxHeight = '0px'; });
+}
+cmpToggle.addEventListener('click', ()=> cmpOpen ? closeCmp() : openCmp());
+
+const AGENTS = [
+  {label:'Lead Manager Agents', items:[
+    ['Inbound Sales Coordinator','$299/mo','$199/mo','$199/mo'],
+    ['Voice Follow-Up Specialist','$399/mo','$299/mo','$299/mo'],
+    ['Speed-to-Lead Specialist','$399/mo','$199/mo','$199/mo'],
+    ['SMS Conversation Specialist','$299/mo','$249/mo','$249/mo'],
+  ]},
+  {label:'AI Copilot Agents', items:[
+    ['Deal Intelligence','$199/mo','$169/mo','$169/mo'],
+    ['Contact Intelligence','$199/mo','$199/mo','$199/mo'],
+    ['SMS Assist','$149/mo','$169/mo','$169/mo'],
+    ['Lead Scorer','$99/mo','$69/mo','$99/mo'],
+    ['Call Review Coach','$99/mo','$69/mo','$99/mo'],
+    ['Seller Appointment Coach','$99/mo','$99/mo','$99/mo'],
+  ]},
+  {label:'AI Agents Bundle — save when you combine', items:[
+    ['Full AI Team','$1,099/mo','$1,099/mo','$1,099/mo'],
+    ['Lead Manager','$899/mo','$899/mo','$899/mo'],
+    ['AI Copilot','$449/mo','$449/mo','$449/mo'],
+  ]},
+];
+function renderAgents(){
+  let h = `<div class="addon-note">AI Agents are optional add-ons you can turn on or off anytime. Pricing varies by plan.</div>`;
+  h += `<div class="addon-scroll"><table class="addon"><thead><tr><th>AI Agent</th><th class="r">Solo</th><th class="r">Team</th><th class="r">Business</th></tr></thead><tbody>`;
+  AGENTS.forEach(g=>{
+    h += `<tr class="agrp"><td colspan="4">${g.label}</td></tr>`;
+    g.items.forEach(r=> h += `<tr><td class="item">${r[0]}</td><td class="r">${r[1]}</td><td class="r">${r[2]}</td><td class="r">${r[3]}</td></tr>`);
+  });
+  h += `</tbody></table></div>`;
+  document.getElementById('agentsInner').innerHTML = h;
+}
+
+function renderAddon(){
+  const perTier = [
+    ['Additional Phone Number','$5/mo','$3/mo','$2/mo'],
+  ];
+  const flat = [
+    ['Additional User','$99/user/mo','$99/user/mo','$99/user/mo'],
+    ['Additional Website','$29/mo','$29/mo','$29/mo'],
+    ['Additional 50 GB Storage','$5/mo','$5/mo','$5/mo'],
+    ['Skip Tracing','15¢/match','15¢/match','15¢/match'],
+  ];
+  const overage = [
+    ['Calling Minutes','$0.05/min','$0.04/min','$0.03/min'],
+    ['SMS','$0.02/SMS','$0.02/SMS','$0.02/SMS'],
+  ];
+  const ai = [
+    ['AI Calling Minutes','$0.50/min','$0.50/min','$0.50/min'],
+  ];
+  let h = `<div class="addon-note"><b>All plans include unlimited standard calling minutes &amp; SMS under our fair use policy.</b> The rates below apply only if you exceed fair use, plus optional AI usage which is always metered.</div>`;
+
+  h += `<div class="grp-label">Plan Add-ons (Solo / Team / Business)</div><div class="addon-scroll"><table class="addon"><thead><tr><th>Add-on</th><th class="r">Solo</th><th class="r">Team</th><th class="r">Business</th></tr></thead><tbody>`;
+  perTier.forEach(r=> h += `<tr><td class="item">${r[0]}</td><td class="r">${r[1]}</td><td class="r">${r[2]}</td><td class="r">${r[3]}</td></tr>`);
+  h += `</tbody></table></div>`;
+
+  h += `<div class="grp-label">Same Price on Every Plan</div><div class="addon-scroll"><table class="addon"><thead><tr><th>Add-on</th><th class="r">Solo</th><th class="r">Team</th><th class="r">Business</th></tr></thead><tbody>`;
+  flat.forEach(r=> h += `<tr><td class="item">${r[0]}</td><td class="r">${r[1]}</td><td class="r">${r[2]}</td><td class="r">${r[3]}</td></tr>`);
+  h += `</tbody></table></div>`;
+
+  h += `<div class="grp-label">Calling &amp; SMS — Pay-as-you-go (All Plans)</div><div class="addon-scroll"><table class="addon"><thead><tr><th>Usage</th><th class="r">Solo</th><th class="r">Team</th><th class="r">Business</th></tr></thead><tbody>`;
+  overage.forEach(r=> h += `<tr><td class="item">${r[0]}</td><td class="r">${r[1]}</td><td class="r">${r[2]}</td><td class="r">${r[3]}</td></tr>`);
+  h += `</tbody></table></div>`;
+
+  h += `<div class="grp-label">AI Usage — Always Metered</div><div class="addon-scroll"><table class="addon"><thead><tr><th>Usage</th><th class="r">Solo</th><th class="r">Team</th><th class="r">Business</th></tr></thead><tbody>`;
+  ai.forEach(r=> h += `<tr><td class="item">${r[0]}</td><td class="r">${r[1]}</td><td class="r">${r[2]}</td><td class="r">${r[3]}</td></tr>`);
+  h += `</tbody></table></div>`;
+
+  document.getElementById('addonInner').innerHTML = h;
+}
+
+function wireAcc(id){
+  const acc = document.getElementById(id);
+  const head = acc.querySelector('.acc-head');
+  const body = acc.querySelector('.acc-body');
+  head.addEventListener('click', ()=>{
+    const open = !acc.classList.contains('open');
+    acc.classList.toggle('open', open);
+    body.style.maxHeight = open ? body.scrollHeight + 'px' : '0px';
+    if(open) cmpWrap.style.maxHeight='none';
+  });
+}
+['accAgents','accAddon'].forEach(wireAcc);
+
+const TOOLS = [
+  { id:'smrt',  name:'smrtPhone + smrtDialer', cat:'Multi-line dialer + phone', base:0,  perSeat:158, note:'verified' },
+  { id:'mojo',  name:'Mojo Dialer',            cat:'Multi-line dialer',         base:0,  perSeat:149, note:'verified' },
+  { id:'batch', name:'BatchDialer',            cat:'Multi-line dialer',         base:0,  perSeat:95, note:'verified' },
+  { id:'free',  name:'FreedomSoft',            cat:'All-in-one REI CRM',        tiers:{1:147,5:147,15:678}, showSeats:true, note:'verified' },
+  { id:'left',  name:'Left Main REI',          cat:'Salesforce-based CRM',      tiers:{1:500,5:500,15:2000}, showSeats:true, capSeats:{15:10}, capNote:{15:'Covers up to 10 users — no published rate for more'}, note:'verified' },
+  { id:'bb',    name:'REI BlackBook',          cat:'All-in-one REI CRM',        tiers:{1:149,5:299,15:799}, showSeats:true, note:'verified' },
+  { id:'carrot',name:'Carrot',                 cat:'Investor CRM',              tiers:{1:59,5:152,15:297}, showSeats:true, capSeats:{15:10}, capNote:{15:'Covers up to 10 users — no published rate for more'}, note:'verified' },
+  { id:'prop',  name:'PropStream',             cat:'Data + skip tracing',       tiers:{1:81,5:255,15:763}, showSeats:true, note:'verified' },
+  { id:'docu',  name:'DocuSign',               cat:'E-signature',               base:0, perSeat:30, note:'verified' },
+  { id:'other', name:'My CRM isn\'t listed',    cat:'Enter your own',            flat:0,   custom:true },
+];
+
+const RESIMPLI = { basic:{name:'Solo',price:249}, pro:{name:'Team',price:699}, ent:{name:'Business',price:1799} };
+let calcSeats = 1, calcPlan = 'basic';
+const calcState = {};
+
+function defaultCost(t){
+  if(t.tiers) return t.tiers[calcSeats] != null ? t.tiers[calcSeats] : t.tiers[1];
+  if(t.flat!=null) return t.flat;
+  return (t.base||0) + (t.perSeat||0) * calcSeats;
+}
+function renderTools(){
+  document.getElementById('toolGrid').innerHTML = TOOLS.map(t=>{
+    const st = calcState[t.id] || {on:false};
+    const shownSeats = (t.capSeats && t.capSeats[calcSeats] != null) ? t.capSeats[calcSeats] : calcSeats;
+    const seatInfo = (t.perSeat || t.showSeats) ? `<span class="seatcalc">${shownSeats} seat${shownSeats>1?'s':''}</span>` : '';
+    const capNote = t.capNote && t.capNote[calcSeats] ? `<div class="tool-capnote">${t.capNote[calcSeats]}</div>` : '';
+    const nameBlock = `<div class="tool-name">${t.name}</div><div class="tool-cat">${t.cat}</div>`;
+    const customName = (t.custom && st.on)
+      ? `<div class="tool-custom"><input type="text" data-cname="${t.id}" value="${st.label||''}" placeholder="CRM name (optional)" aria-label="Your CRM name"></div>`
+      : '';
+    return `
+      <div class="tool ${st.on?'on':''} ${t.custom?'tool-wide':''}" data-id="${t.id}">
+        <div class="tool-top">
+          <div class="tool-box"><svg width="12" height="12" viewBox="0 0 20 20" fill="none"><path d="M4 10.5l3.5 3.5L16 5" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div>${nameBlock}</div>
+        </div>
+        ${customName}
+        <div class="tool-price">
+          <span class="dollar">$</span>
+          <input type="number" min="0" data-price="${t.id}" value="${st.on?st.price:defaultCost(t)}" ${st.on?'':'disabled'} aria-label="${t.name} monthly cost">
+          <span class="unit">/mo</span>${seatInfo}
+        </div>
+        ${capNote}
+      </div>`;
+  }).join('');
+}
+function recalc(){
+  let now = 0, count = 0;
+  TOOLS.forEach(t=>{ const st=calcState[t.id]; if(st&&st.on){ now += Number(st.price)||0; count++; } });
+  const plan = RESIMPLI[calcPlan];
+  const save = now - plan.price;
+  document.getElementById('crCount').textContent = count + (count===1?' tool':' tools');
+  document.getElementById('crNow').innerHTML = fmt(Math.round(now)) + '<span class="cr-per">/mo</span>';
+  document.getElementById('crPlan').textContent = plan.name;
+  document.getElementById('crResimpli').innerHTML = fmt(plan.price) + '<span class="cr-per">/mo</span>';
+  const box = document.getElementById('crSaveBox');
+  const big = document.getElementById('crSave');
+  const lbl = document.getElementById('crSaveLbl');
+  if(count===0){
+    big.textContent = '$0'; lbl.textContent = 'Select your tools to see savings';
+    box.style.background='var(--teal-tint-2)'; big.style.color='var(--teal)';
+  } else if(save>0){
+    big.innerHTML = fmt(Math.round(save*12)) + '<span class="cr-per">/yr</span>';
+    lbl.textContent = `saved every year by switching to REsimpli ${plan.name} · ${fmt(Math.round(save))}/mo`;
+    box.style.background='var(--teal-tint)'; big.style.color='var(--teal)';
+  } else if(save===0){
+    big.textContent = '$0';
+    lbl.textContent = 'about the same — but everything lives in one login';
+    box.style.background='var(--bg-soft)'; big.style.color='var(--slate)';
+  } else {
+    big.innerHTML = fmt(Math.abs(Math.round(save*12))) + '<span class="cr-per">/yr</span>';
+    lbl.textContent = 'more on REsimpli, with every tool consolidated into one login';
+    box.style.background='var(--bg-soft)'; big.style.color='var(--slate)';
+  }
+}
+document.getElementById('toolGrid').addEventListener('click', e=>{
+  if(e.target.closest('.tool-price')||e.target.closest('.tool-custom')) return;
+  const card = e.target.closest('.tool'); if(!card) return;
+  const t = TOOLS.find(x=>x.id===card.dataset.id);
+  const st = calcState[t.id] = calcState[t.id] || {on:false, price:defaultCost(t)};
+  st.on = !st.on;
+  if(st.on) st.price = defaultCost(t);
+  renderTools(); recalc();
+});
+document.getElementById('toolGrid').addEventListener('input', e=>{
+  const pid = e.target.dataset.price;
+  if(pid && calcState[pid]){ calcState[pid].price = Number(e.target.value)||0; recalc(); return; }
+  const cid = e.target.dataset.cname;
+  if(cid && calcState[cid]){ calcState[cid].label = e.target.value; }
+});
+document.getElementById('teamSeg').addEventListener('click', e=>{
+  const b = e.target.closest('.seg-btn'); if(!b) return;
+  document.querySelectorAll('#teamSeg .seg-btn').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active');
+  calcSeats = Number(b.dataset.seats); calcPlan = b.dataset.plan;
+  TOOLS.forEach(t=>{ const st=calcState[t.id]; if(st&&st.on&&(t.perSeat||t.tiers)&&!st.edited) st.price=defaultCost(t); });
+  renderTools(); recalc();
+});
+document.getElementById('toolGrid').addEventListener('change', e=>{
+  const id = e.target.dataset.price; if(id && calcState[id]) calcState[id].edited = true;
+});
+
+const INC_TILES = [
+  {i:'<path d="M4 5h4v14H4zM10 5h4v14h-4zM16 5h4v14h-4z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>',
+   t:'CRM & Lead Pipeline', d:'Every lead, deal, and follow-up organized in one pipeline.'},
+  {i:'<path d="M5 4h3l1.5 4-2 1.5a11 11 0 0 0 5 5l1.5-2 4 1.5v3a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>',
+   t:'Triple-Line Dialer', d:'Call three lines at once with unlimited minutes.'},
+  {i:'<circle cx="9" cy="9" r="5.5" stroke="currentColor" stroke-width="1.7"/><path d="M17.5 17.5 13 13" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>',
+   t:'Free Skip Tracing', d:'Pull owner data and phone numbers on demand.'},
+  {i:'<rect x="3" y="5.5" width="18" height="13" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>',
+   t:'Direct Mail', d:'Launch and automate mail campaigns from the app.'},
+  {i:'<path d="M10 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="10" cy="10" r="2.4" stroke="currentColor" stroke-width="1.7"/>',
+   t:'Driving for Dollars', d:'Map distressed properties and pull owners on the spot.'},
+  {i:'<circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18" stroke="currentColor" stroke-width="1.5"/>',
+   t:'SEO Investor Websites', d:'Seller and buyer sites that capture leads for you.'},
+  {i:'<path d="M4 20V4M4 20h16M8 16v-4M12 16V8M16 16v-7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>',
+   t:'Full Accounting', d:'Track every dollar with built-in bookkeeping.'},
+  {i:'<path d="M12 3l1.8 4.7L18.5 9l-4.7 1.8L12 15.5l-1.8-4.7L5.5 9l4.7-1.3L12 3zM18 15l.9 2.3 2.3.9-2.3.9L18 21.4l-.9-2.3-2.3-.9 2.3-.9L18 15z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>',
+   t:'AI Agents & Automation', d:'AI answers, texts, and follows up around the clock.'},
+];
+function renderIncludes(){
+  document.getElementById('incTiles').innerHTML = INC_TILES.map(x=>`
+    <div class="inc-tile">
+      <div class="inc-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none">${x.i}</svg></div>
+      <h4>${x.t}</h4>
+      <p>${x.d}</p>
+    </div>`).join('');
+}
+
+const FAQ = [
+  ['How long is the free trial?','You get a 14-day free trial on any plan, monthly or annual. A credit card is required to start your trial, and you can cancel anytime before it ends — you won\'t be charged until the trial is over.'],
+  ['How many calling minutes and SMS do I get?','Every plan — Solo, Team, and Business — includes unlimited standard calling minutes and SMS under our fair use policy. Only AI calling and AI SMS are metered, at a flat per-use rate.'],
+  ['What does fair use mean?','Fair use covers normal, human-driven calling and texting for your own real estate business. It exists only to prevent abuse like autodialing at carrier scale or spam blasting. If you ever approach the threshold, we\'ll reach out first — you\'ll never be surprised by a charge.'],
+  ['Do you charge overages?','Not for standard usage within fair use. If you exceed fair use, overage rates apply (listed under Add-ons &amp; usage pricing). AI usage is always billed per use.'],
+  ['Can I add users to my plan?','Yes. Additional users can be added to any plan at the per-user rate shown under Add-ons &amp; usage pricing.'],
+  ['When should I upgrade from Team to Business?','Move to Business when your team grows past 5 people, you need unlimited markets, or you want a dedicated account manager and higher data limits.'],
+  ['Is the Triple Line Dialer included for sub-users?','Yes — the Triple Line Dialer is included on every plan for all sub-users at no extra cost.'],
+  ['Is the REsimpli AI Engine included?','Every plan includes a free trial of the REsimpli AI Engine. AI Agents are optional add-ons you can turn on anytime.'],
+  ['Can I upgrade or downgrade later?','Anytime. Changes take effect on your next billing cycle and your data carries over automatically.'],
+];
+function renderFaq(){
+  document.getElementById('faqList').innerHTML = FAQ.map((f,i)=>`
+    <div class="acc" id="faq${i}">
+      <div class="acc-head">${f[0]}
+        <svg class="chev" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="acc-body"><div class="acc-inner" style="color:var(--slate);font-weight:500;padding-top:2px">${f[1]}</div></div>
+    </div>`).join('');
+  FAQ.forEach((_,i)=>wireAcc('faq'+i));
+}
+
+renderCards();
+renderCmpHead();
+renderCmpBody();
+renderAgents();
+renderAddon();
+renderTools();
+recalc();
+renderIncludes();
+renderFaq();
+cmpWrap.style.maxHeight = '0px';
+
+const ROT_PHRASES = ['Calling Minutes.','Texting.','Emails.','Cash Buyer Searches.','List Stacking.','E-Sign.','API Usage.'];
+let rotIdx = 0;
+const rotEl = document.getElementById('rotText');
+function lockRotWidth(){
+  if(!rotEl) return;
+  const measurer = document.createElement('span');
+  measurer.style.visibility = 'hidden';
+  measurer.style.position = 'absolute';
+  measurer.style.whiteSpace = 'nowrap';
+  const cs = window.getComputedStyle(rotEl);
+  measurer.style.font = cs.font;
+  measurer.style.letterSpacing = cs.letterSpacing;
+  document.body.appendChild(measurer);
+  let maxWidth = 0;
+  ROT_PHRASES.forEach(phrase=>{
+    measurer.textContent = phrase;
+    maxWidth = Math.max(maxWidth, measurer.getBoundingClientRect().width);
+  });
+  document.body.removeChild(measurer);
+  rotEl.style.width = Math.ceil(maxWidth) + 'px';
+}
+function rotateHeadline(){
+  if(!rotEl) return;
+  rotEl.style.opacity = '0.4';
+  rotEl.style.transform = 'translateY(-6px)';
+  setTimeout(()=>{
+    rotIdx = (rotIdx + 1) % ROT_PHRASES.length;
+    rotEl.textContent = ROT_PHRASES[rotIdx];
+    rotEl.style.transform = 'translateY(6px)';
+    requestAnimationFrame(()=>{
+      rotEl.style.opacity = '1';
+      rotEl.style.transform = 'translateY(0)';
+    });
+  }, 100);
+}
+if(rotEl && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  lockRotWidth();
+  let rotResizeTimer;
+  window.addEventListener('resize', ()=>{
+    clearTimeout(rotResizeTimer);
+    rotResizeTimer = setTimeout(lockRotWidth, 150);
+  });
+  setInterval(rotateHeadline, 1500);
+}
+</script>
+</body>
+</html>
